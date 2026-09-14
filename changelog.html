@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
 <style>
-:root{--bg:#0c0c0e;--bg2:#121214;--bg3:#1a1a1e;--bg4:#222228;--border:#2a2a32;--border2:#3a3a44;--text:#f4f4f5;--muted:#a1a1aa;--faint:#71717a;--green:#22c55e;--font:'Inter',system-ui,sans-serif}
+:root{--bg:#0c0c0e;--border:#2a2a32;--border2:#3a3a44;--text:#f4f4f5;--muted:#a1a1aa;--faint:#71717a;--green:#22c55e;--glass:rgba(18,18,20,.475);--glass-edge:rgba(42,42,50,.65);--font:'Inter',system-ui,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{min-height:100%}
 body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;line-height:1.55;-webkit-font-smoothing:antialiased;position:relative;display:flex;flex-direction:column}
@@ -16,7 +16,7 @@ body::before{content:'';position:fixed;inset:0;background:url('https://i.imgur.c
 body > *{position:relative;z-index:1}
 a{color:inherit;text-decoration:none}
 iconify-icon{display:inline-block;vertical-align:middle}
-nav{position:sticky;top:0;z-index:50;background:rgba(12,12,14,.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 16px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-shrink:0}
+nav{position:sticky;top:0;z-index:50;background:rgba(12,12,14,.72);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 16px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-shrink:0}
 .nav-brand{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;min-width:0}
 .nav-brand img{width:28px;height:28px;object-fit:contain;flex-shrink:0}
 .nav-brand span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -28,15 +28,17 @@ nav{position:sticky;top:0;z-index:50;background:rgba(12,12,14,.82);backdrop-filt
 .btn-white:hover{background:#e4e4e7}
 .btn-ghost{background:transparent;color:var(--muted);border:1px solid transparent;padding:9px 10px}
 .btn-ghost:hover{color:var(--text);background:rgba(255,255,255,.06)}
-.wrap{max-width:720px;margin:0 auto;padding:40px 16px 64px;width:100%;flex:1}
-.page-head{margin-bottom:28px}
+.wrap{max-width:720px;margin:0 auto;padding:36px 16px 56px;width:100%;flex:1}
+.page-head{margin-bottom:22px}
 .page-head .icon-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.page-head .icon-box{width:44px;height:44px;border-radius:12px;background:rgba(34,34,40,.85);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:#fff}
+.page-head .icon-box{width:44px;height:44px;border-radius:12px;background:rgba(34,34,40,.8);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:#fff}
 .page-head .icon-box iconify-icon{font-size:24px}
 .page-head h1{font-size:1.6rem;font-weight:800;color:#fff;letter-spacing:-.02em;margin-bottom:8px}
 .page-head p{color:var(--muted);font-size:14px}
-.entry{background:rgba(18,18,20,.55);border:1px solid rgba(42,42,50,.7);border-radius:14px;overflow:hidden;margin-bottom:14px;backdrop-filter:blur(10px)}
-.entry-toggle{width:100%;display:flex;align-items:center;gap:12px;padding:18px 20px;background:transparent;border:none;color:var(--text);cursor:pointer;font-family:inherit;text-align:left}
+.stack{display:flex;flex-direction:column;gap:0;border-radius:16px;overflow:hidden;border:1px solid var(--glass-edge);background:var(--glass);backdrop-filter:blur(12px)}
+.entry{border-bottom:1px solid var(--glass-edge)}
+.entry:last-child{border-bottom:none}
+.entry-toggle{width:100%;display:flex;align-items:center;gap:12px;padding:18px 18px;background:transparent;border:none;color:var(--text);cursor:pointer;font-family:inherit;text-align:left}
 .entry-toggle:hover{background:rgba(255,255,255,.03)}
 .entry-badge{font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#fff;color:#0c0c0e;flex-shrink:0}
 .entry-badge.old{background:rgba(255,255,255,.12);color:var(--muted)}
@@ -45,7 +47,7 @@ nav{position:sticky;top:0;z-index:50;background:rgba(12,12,14,.82);backdrop-filt
 .entry-meta span{font-size:12px;color:var(--faint)}
 .chev{font-size:20px;color:var(--faint);transition:transform .2s;flex-shrink:0}
 .entry.open .chev{transform:rotate(180deg)}
-.entry-body{display:none;padding:0 20px 20px;border-top:1px solid rgba(42,42,50,.5)}
+.entry-body{display:none;padding:0 18px 18px;border-top:1px solid var(--glass-edge)}
 .entry.open .entry-body{display:block}
 .entry-body h3{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--faint);margin:16px 0 10px}
 .entry-body h3:first-child{margin-top:14px}
@@ -57,7 +59,7 @@ nav{position:sticky;top:0;z-index:50;background:rgba(12,12,14,.82);backdrop-filt
 .tag-new{background:rgba(34,197,94,.15);color:#4ade80}
 .tag-imp{background:rgba(255,255,255,.08);color:#d4d4d8}
 .tag-fix{background:rgba(239,68,68,.12);color:#f87171}
-footer{border-top:1px solid var(--border);padding:24px 16px;text-align:center;background:rgba(12,12,14,.75);backdrop-filter:blur(10px);margin-top:auto;flex-shrink:0;width:100%}
+footer{border-top:1px solid var(--border);padding:24px 16px;text-align:center;background:rgba(12,12,14,.7);backdrop-filter:blur(10px);margin-top:auto;flex-shrink:0;width:100%}
 .footer-brand{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:10px}
 .footer-brand img{width:20px;height:20px;object-fit:contain}
 .footer-brand strong{font-size:13px;color:var(--muted)}
@@ -70,7 +72,7 @@ nav{padding:0 24px;height:60px}
 .nav-brand{font-size:16px}
 .nav-brand img{width:30px;height:30px}
 .btn{padding:10px 16px;font-size:14px}
-.wrap{padding:48px 24px 80px}
+.wrap{padding:44px 24px 72px}
 .page-head h1{font-size:1.9rem}
 }
 @media(max-width:639px){
@@ -89,7 +91,6 @@ nav{padding:0 24px;height:60px}
 <a class="btn btn-white" href="componentsv2.html">Open Builder</a>
 </div>
 </nav>
-
 <div class="wrap">
 <div class="page-head">
 <div class="icon-row">
@@ -98,102 +99,138 @@ nav{padding:0 24px;height:60px}
 <h1>Changelog</h1>
 <p>What shipped and what got reworked.</p>
 </div>
-
-<article class="entry open" id="v03">
-<button type="button" class="entry-toggle" onclick="toggleEntry('v03')">
-<span class="entry-badge">0.3</span>
+<div class="stack">
+<article class="entry open" id="v04">
+<button type="button" class="entry-toggle" onclick="toggleEntry('v04')">
+<span class="entry-badge">0.4</span>
 <div class="entry-meta">
-<h2>Builders polish</h2>
-<span>September 2026</span>
+<h2>Landing + builders pass</h2>
+<span>September 13th 2026</span>
 </div>
 <iconify-icon class="chev" icon="lucide:chevron-down"></iconify-icon>
 </button>
 <div class="entry-body">
 <h3>New</h3>
 <ul>
-<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Custom clear confirm</strong>. No more OS popup. Same style as the rest of the site.</span></li>
-<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Export name popup</strong>. Type a file name, .json gets stuck on the end for you.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>TOS gate</strong> before builders. Checkbox + continue. Saved in localStorage.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Connected glass panels</strong> on landing, TOS, changelog, and both builders.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Full-screen hero</strong> on landing. Shrinks as you scroll. v0.4 badge in nav.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>About section</strong> on landing with quick stats.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>JSON panel</strong> with filename bar + Copy. Fixed height, scroll inside.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Webhook URL section</strong> on TOS. Leaks are on you even if we keep it client-side.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Embed deprecation note</strong>. Still works. Feature updates frozen. UI can still change.</span></li>
 </ul>
 <h3>Improved</h3>
 <ul>
-<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>GIF background</strong> on Components V2 and Embed Builder. Same look as the landing page.</span></li>
-<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Solar icons</strong> across both builders.</span></li>
-<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Glass panels</strong>. More transparent so the background shows through.</span></li>
-<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Mobile chrome</strong>. Sidebar send + header preview hidden on phones. Bottom bar handles that.</span></li>
-<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Embed Builder</strong> matched to Components V2. Same modals, toasts, export, mobile behavior.</span></li>
-<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Container preview</strong>. Closer to real Components V2 layout.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Color picker</strong>. HSV + hex only. Preset chips gone.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Toasts</strong>. Drop from the top. Solar status icons. Lucide X to close.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Modals</strong>. More transparent glass.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Header actions + mobile bar</strong> connected as one strip.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Mobile nav</strong>. Top hamburger removed. Bottom bar uses menu icon.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Container / embed accent bar</strong>. Straight strip, a bit darker.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Embed Builder</strong> matched to Components V2 UI end to end.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Landing copy</strong>. Less stiff. Fewer duplicate CTAs.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Gradient text</strong> on hero. Smoother + light glow.</span></li>
 </ul>
 <h3>Fixed</h3>
 <ul>
-<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-fix">Fixed</span><strong>Black color</strong>. Picking #000000 actually sticks now.</span></li>
-<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-fix">Fixed</span><strong>Type badges</strong> and other clutter pulled off component cards.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-fix">Fixed</span><strong>Container children clipping</strong>. Long nests scroll with the canvas again.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-fix">Fixed</span><strong>Footer lift</strong> on short pages. Stays pinned to the bottom.</span></li>
 </ul>
 </div>
 </article>
-
+<article class="entry" id="v03">
+<button type="button" class="entry-toggle" onclick="toggleEntry('v03')">
+<span class="entry-badge old">0.3</span>
+<div class="entry-meta">
+<h2>Builders polish</h2>
+<span>September 13th 2026</span>
+</div>
+<iconify-icon class="chev" icon="lucide:chevron-down"></iconify-icon>
+</button>
+<div class="entry-body">
+<h3>New</h3>
+<ul>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Custom clear confirm</strong>. No OS popup.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Export name popup</strong>. Type a name, .json gets added.</span></li>
+</ul>
+<h3>Improved</h3>
+<ul>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>GIF background</strong> on both builders.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Solar icons</strong> across the builders.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Glass panels</strong>. More transparent.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Mobile chrome</strong>. Bottom bar handles send / preview.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Embed Builder</strong> matched closer to Components V2.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Container preview</strong>.</span></li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-fix">Fixed</span><strong>Black color</strong>. #000000 sticks.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-fix">Fixed</span><strong>Type badges</strong> and card clutter removed.</span></li>
+</ul>
+</div>
+</article>
 <article class="entry" id="v02">
 <button type="button" class="entry-toggle" onclick="toggleEntry('v02')">
 <span class="entry-badge old">0.2</span>
 <div class="entry-meta">
 <h2>UI rework</h2>
-<span>September 2026</span>
+<span>September 12th 2026</span>
 </div>
 <iconify-icon class="chev" icon="lucide:chevron-down"></iconify-icon>
 </button>
 <div class="entry-body">
 <h3>New</h3>
 <ul>
-<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Centered modal pickers</strong> for styles, spacing, accessories.</span></li>
-<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Top-right toasts</strong> with icons and a close button.</span></li>
-<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>String Select / dropdown</strong> in Components V2.</span></li>
-<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Link Button</strong> as its own component.</span></li>
-<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Multi-embed</strong>. Up to 10, reorder, delete.</span></li>
-<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Message content</strong> field above components / embeds.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Centered modal pickers</strong>.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Toasts</strong> with icons and close.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>String Select / dropdown</strong>.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Link Button</strong> component.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Multi-embed</strong>. Up to 10.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Message content</strong> field.</span></li>
 <li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>TOS page</strong>.</span></li>
 <li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Changelog page</strong>.</span></li>
 </ul>
 <h3>Improved</h3>
 <ul>
-<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Landing page</strong>. GIF background, bigger logo, gray gradient text, Solar icons.</span></li>
-<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Proton logo + favicon</strong> on all pages.</span></li>
-<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Mobile layout</strong>. Drawers, less clutter.</span></li>
-<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Embed builder</strong> brought closer to Components V2.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Landing page</strong>. GIF background, bigger logo, gradient text.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Logo + favicon</strong> everywhere.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Mobile layout</strong>.</span></li>
 </ul>
 </div>
 </article>
-
 <article class="entry" id="v01">
 <button type="button" class="entry-toggle" onclick="toggleEntry('v01')">
 <span class="entry-badge old">0.1</span>
 <div class="entry-meta">
 <h2>Initial public release</h2>
-<span>August 2026</span>
+<span>August 30th 2026</span>
 </div>
 <iconify-icon class="chev" icon="lucide:chevron-down"></iconify-icon>
 </button>
 <div class="entry-body">
 <h3>New</h3>
 <ul>
-<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Components V2 Builder</strong>. Containers, sections, text, separators, media, action rows.</span></li>
-<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Embed Builder</strong>. Author, title, description, fields, images, footer, color, timestamp.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Components V2 Builder</strong>.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Embed Builder</strong>.</span></li>
 <li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Landing page</strong>.</span></li>
 <li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>HSV color picker</strong>.</span></li>
 <li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Import / export JSON</strong>.</span></li>
-<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Image upload</strong> for local preview.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Image upload</strong> for preview.</span></li>
 <li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-new">New</span><strong>Webhook send</strong>.</span></li>
 </ul>
 <h3>Improved</h3>
 <ul>
 <li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Live preview</strong> with markdown.</span></li>
 <li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>iOS-style toggles</strong>.</span></li>
-<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Nested building</strong> inside Containers.</span></li>
+<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Nested building</strong> in Containers.</span></li>
 <li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Mobile drawers</strong> and bottom bar.</span></li>
 <li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span><span class="tag tag-imp">Improved</span><strong>Syntax-highlighted JSON</strong>.</span></li>
 </ul>
 </div>
 </article>
 </div>
-
+</div>
 <footer>
 <div class="footer-brand">
 <img src="https://raw.githubusercontent.com/t0x1c-dev/Proton-Services/main/images/proton-services-logo-backgroundtransparent.png" alt="">
@@ -204,6 +241,7 @@ nav{padding:0 24px;height:60px}
 <a href="componentsv2.html">Components V2</a>
 <a href="embed.html">Embed Builder</a>
 <a href="tos.html">Terms</a>
+<a href="credits.html">Credits</a>
 </div>
 <p class="footer-copy">Free Discord builders.</p>
 </footer>
