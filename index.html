@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proton Services</title>
+<link rel="icon" href="https://raw.githubusercontent.com/t0x1c-dev/Proton-Services/main/images/proton-services-logo-backgroundtransparent.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+<style>
+:root{--bg:#0c0c0e;--border:rgba(42,42,50,.7);--border2:#3a3a44;--text:#f4f4f5;--muted:#a1a1aa;--faint:#71717a;--glass:rgba(18,18,20,.42);--glass-edge:rgba(255,255,255,.08);--font:'Inter',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{min-height:100%}
+body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;line-height:1.5;-webkit-font-smoothing:antialiased;position:relative;display:flex;flex-direction:column}
+body::before{content:'';position:fixed;inset:0;background:url('https://i.imgur.com/UUw90rV.gif') center center / cover no-repeat;opacity:.65;z-index:0;pointer-events:none}
+body.quality-stable::before{opacity:.35}
+body > *{position:relative;z-index:1}
+a{color:inherit;text-decoration:none}
+iconify-icon{display:inline-block;vertical-align:middle}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(12,12,14,0);backdrop-filter:blur(0);border-bottom:1px solid transparent;padding:0 16px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:8px;transition:background .28s ease,backdrop-filter .28s ease,border-color .28s ease,height .28s ease}
+nav.scrolled{background:rgba(12,12,14,.72);backdrop-filter:blur(20px) saturate(1.2);border-bottom-color:var(--glass-edge);height:54px}
+body.quality-stable nav.scrolled{backdrop-filter:none;background:rgba(12,12,14,.92)}
+.nav-brand{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;min-width:0}
+.nav-brand img{width:28px;height:28px;object-fit:contain;flex-shrink:0;transition:width .25s,height .25s}
+nav.scrolled .nav-brand img{width:24px;height:24px}
+.nav-brand span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav-links{display:flex;gap:6px;align-items:center;flex-shrink:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:9px 14px;border-radius:12px;border:none;font-weight:600;font-size:13px;cursor:pointer;font-family:inherit;transition:background .15s ease,transform .1s ease,border-color .15s ease,box-shadow .15s ease;white-space:nowrap}
+.btn:active{transform:scale(.98)}
+.btn iconify-icon{font-size:17px}
+.btn-white{background:#fff;color:#0c0c0e;box-shadow:0 4px 20px rgba(255,255,255,.12)}
+.btn-white:hover{background:#e4e4e7}
+.btn-ghost{background:transparent;color:var(--muted);border:1px solid transparent;padding:9px 10px}
+.btn-ghost:hover{color:var(--text);background:rgba(255,255,255,.06)}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border2)}
+.btn-outline:hover{border-color:var(--muted);background:rgba(255,255,255,.04)}
+.icon-pill{width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border-radius:11px;background:rgba(255,255,255,.06);border:1px solid var(--glass-edge);color:var(--muted);transition:background .15s ease,color .15s ease,border-color .15s ease}
+.icon-pill:hover{background:rgba(255,255,255,.1);color:var(--text);border-color:rgba(255,255,255,.14)}
+.icon-pill iconify-icon{font-size:18px}
+.ver{background:rgba(255,255,255,.08);color:var(--text);border:1px solid var(--glass-edge);font-size:12px;padding:7px 12px;border-radius:999px;font-weight:700;backdrop-filter:blur(12px);transition:background .15s ease}
+.ver:hover{background:rgba(255,255,255,.14)}
+.main-col{flex:1;width:100%}
+.hero{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 20px 48px;position:relative}
+.hero-inner{display:flex;flex-direction:column;align-items:center;transform-origin:center center;transition:transform .2s ease-out,opacity .2s ease-out;will-change:transform,opacity}
+.hero-logo{width:140px;height:140px;object-fit:contain;margin:0 auto 28px;display:block;filter:drop-shadow(0 12px 40px rgba(0,0,0,.55));transition:width .2s,height .2s,margin .2s}
+.hero h1{font-size:clamp(2rem,7vw,3.1rem);font-weight:800;letter-spacing:-.035em;line-height:1.12;margin-bottom:14px;color:#fff}
+.grad{background:linear-gradient(100deg,#3f3f46 0%,#71717a 18%,#d4d4d8 42%,#fafafa 50%,#d4d4d8 58%,#71717a 82%,#3f3f46 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:gradRTL 7s linear infinite;filter:drop-shadow(0 0 18px rgba(228,228,231,.22))}
+@keyframes gradRTL{0%{background-position:100% 50%}100%{background-position:-100% 50%}}
+.hero p{font-size:16px;color:var(--muted);max-width:380px;margin:0 auto;line-height:1.5}
+.scroll-hint{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--faint);font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;opacity:.75;animation:bob 2.2s ease-in-out infinite}
+.scroll-hint iconify-icon{font-size:18px}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+.section{padding:40px 16px;max-width:740px;margin:0 auto}
+.section-title{text-align:center;margin-bottom:20px}
+.section-title h2{font-size:1.28rem;font-weight:700;color:#fff;margin-bottom:6px}
+.section-title p{color:var(--faint);font-size:14px}
+.glass{border-radius:18px;overflow:hidden;border:1px solid var(--glass-edge);background:var(--glass);backdrop-filter:blur(18px) saturate(1.25);-webkit-backdrop-filter:blur(18px) saturate(1.25);box-shadow:0 8px 40px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.04)}
+body.quality-stable .glass{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(22,22,26,.92)}
+.pick{display:flex;flex-direction:column;gap:0}
+.pick .card{border:none;border-radius:0;background:transparent;backdrop-filter:none;border-bottom:1px solid var(--glass-edge)}
+.pick .card:last-child{border-bottom:none}
+.card{padding:22px;display:flex;flex-direction:column;gap:12px}
+.card-top{display:flex;align-items:flex-start;gap:12px}
+.card-icon{width:44px;height:44px;border-radius:13px;background:rgba(255,255,255,.06);border:1px solid var(--glass-edge);display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0}
+.card-icon iconify-icon{font-size:22px}
+.card h3{font-size:1.08rem;font-weight:700;color:#fff;margin-bottom:2px}
+.card .card-lead{color:var(--muted);font-size:13px;line-height:1.5;flex:1}
+.card-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:11px;font-weight:600;padding:4px 9px;border-radius:7px;background:rgba(255,255,255,.05);color:var(--muted);border:1px solid var(--glass-edge)}
+.card .btn{width:100%;margin-top:2px}
+.features{display:grid;grid-template-columns:1fr;gap:0}
+.feature{padding:16px;display:flex;gap:12px;align-items:flex-start;border-bottom:1px solid var(--glass-edge)}
+.feature:last-child{border-bottom:none}
+.feature-icon{width:36px;height:36px;border-radius:11px;background:rgba(255,255,255,.06);border:1px solid var(--glass-edge);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff}
+.feature-icon iconify-icon{font-size:18px}
+.feature h4{font-size:13px;font-weight:600;color:#fff;margin-bottom:2px}
+.feature p{font-size:12px;color:var(--faint);line-height:1.4}
+.about{padding:22px}
+.about p{color:var(--muted);font-size:14px;line-height:1.55;margin-bottom:12px}
+.about p:last-of-type{margin-bottom:0}
+.about strong{color:var(--text);font-weight:600}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:14px;border-radius:14px;overflow:hidden;border:1px solid var(--glass-edge);background:rgba(0,0,0,.18)}
+.stat{padding:16px;text-align:center;border-right:1px solid var(--glass-edge);border-bottom:1px solid var(--glass-edge)}
+.stat:nth-child(2n){border-right:none}
+.stat:nth-last-child(-n+2){border-bottom:none}
+.stat b{display:block;font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:2px;font-variant-numeric:tabular-nums}
+.stat span{font-size:12px;color:var(--faint)}
+.live-stats{display:grid;grid-template-columns:1fr;gap:0}
+.live-stat{padding:18px;display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--glass-edge)}
+.live-stat:last-child{border-bottom:none}
+.live-stat-icon{width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid var(--glass-edge);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff}
+.live-stat-icon iconify-icon{font-size:20px}
+.live-stat b{display:block;font-size:1.35rem;font-weight:800;color:#fff;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.live-stat span{font-size:12px;color:var(--faint)}
+.live-note{text-align:center;font-size:11px;color:var(--faint);margin-top:10px}
+.extras{display:grid;grid-template-columns:1fr;gap:0}
+.extra{padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--glass-edge);color:var(--text);transition:background .12s ease}
+.extra:last-child{border-bottom:none}
+.extra:hover{background:rgba(255,255,255,.04)}
+.extra-left{display:flex;align-items:center;gap:12px;min-width:0}
+.extra-left iconify-icon{font-size:20px;color:#fff;flex-shrink:0}
+.extra strong{display:block;font-size:13px;font-weight:600;color:#fff}
+.extra span{font-size:12px;color:var(--faint)}
+.extra iconify-icon.chev{font-size:18px;color:var(--faint);flex-shrink:0}
+footer{border-top:1px solid var(--glass-edge);padding:24px 16px;text-align:center;background:rgba(12,12,14,.65);backdrop-filter:blur(14px);margin-top:auto;flex-shrink:0}
+body.quality-stable footer{backdrop-filter:none;background:rgba(12,12,14,.92)}
+.footer-brand{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:10px}
+.footer-brand img{width:20px;height:20px;object-fit:contain}
+.footer-brand strong{font-size:13px;color:var(--muted)}
+.footer-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:8px}
+.footer-links a{font-size:13px;color:var(--faint)}
+.footer-links a:hover{color:var(--text)}
+.footer-copy{font-size:11px;color:var(--faint)}
+@media(min-width:640px){
+nav{padding:0 24px;height:64px}
+nav.scrolled{height:56px}
+.nav-brand{font-size:16px}
+.nav-brand img{width:30px;height:30px}
+nav.scrolled .nav-brand img{width:26px;height:26px}
+.btn{padding:10px 16px;font-size:14px}
+.btn iconify-icon{font-size:18px}
+.ver{font-size:13px;padding:8px 14px}
+.hero{padding:88px 24px 56px}
+.hero-logo{width:168px;height:168px;margin-bottom:32px}
+.hero p{font-size:17px;max-width:420px}
+.section{padding:48px 24px;max-width:820px}
+.section-title{margin-bottom:24px}
+.section-title h2{font-size:1.42rem}
+.pick{flex-direction:row}
+.pick .card{flex:1;border-bottom:none;border-right:1px solid var(--glass-edge)}
+.pick .card:last-child{border-right:none}
+.card{padding:26px}
+.features{grid-template-columns:1fr 1fr}
+.feature{border-right:1px solid var(--glass-edge)}
+.feature:nth-child(2n){border-right:none}
+.feature:nth-last-child(-n+2){border-bottom:none}
+.feature:nth-child(-n+2){border-bottom:1px solid var(--glass-edge)}
+.stats{grid-template-columns:repeat(4,1fr)}
+.stat{border-bottom:none;border-right:1px solid var(--glass-edge)}
+.stat:last-child{border-right:none}
+.live-stats{grid-template-columns:1fr 1fr}
+.live-stat{border-right:1px solid var(--glass-edge)}
+.live-stat:nth-child(2n){border-right:none}
+.live-stat:nth-last-child(-n+2){border-bottom:none}
+.extras{grid-template-columns:1fr 1fr}
+.extra{border-right:1px solid var(--glass-edge)}
+.extra:nth-child(2n){border-right:none}
+.extra:nth-last-child(-n+2){border-bottom:none}
+}
+@media(min-width:900px){
+.features{grid-template-columns:1fr 1fr 1fr}
+.feature{border-right:1px solid var(--glass-edge);border-bottom:none}
+.feature:nth-child(3n){border-right:none}
+.feature:nth-child(-n+3){border-bottom:none}
+.live-stats{grid-template-columns:repeat(4,1fr)}
+.live-stat{border-bottom:none;border-right:1px solid var(--glass-edge)}
+.live-stat:last-child{border-right:none}
+}
+@media(max-width:639px){
+.nav-links .btn-ghost{display:none}
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+<a href="index.html" class="nav-brand">
+<img src="https://raw.githubusercontent.com/t0x1c-dev/Proton-Services/main/images/proton-services-logo-backgroundtransparent.png" alt="Proton">
+<span>Proton Services</span>
+</a>
+<div class="nav-links">
+<a class="btn btn-ghost" href="changelog.html"><iconify-icon icon="solar:clipboard-list-bold-duotone"></iconify-icon><span data-i18n="logs">Logs</span></a>
+<a class="icon-pill" href="settings.html" title="Settings"><iconify-icon icon="solar:settings-bold-duotone"></iconify-icon></a>
+<a class="ver" href="changelog.html">v0.4</a>
+</div>
+</nav>
+<div class="main-col">
+<section class="hero" id="hero">
+<div class="hero-inner" id="heroInner">
+<img class="hero-logo" id="heroLogo" src="https://raw.githubusercontent.com/t0x1c-dev/Proton-Services/main/images/proton-services-logo-backgroundtransparent.png" alt="Proton Services">
+<h1><span data-i18n="hero_1">Build Discord messages</span><br><span class="grad" data-i18n="hero_2">that look good</span></h1>
+<p data-i18n="hero_sub">Components V2 + embeds. Preview live, dump JSON, fire a webhook.</p>
+</div>
+<div class="scroll-hint" id="scrollHint">
+<span data-i18n="scroll">Scroll</span>
+<iconify-icon icon="solar:alt-arrow-down-bold-duotone"></iconify-icon>
+</div>
+</section>
+<section class="section" id="builders">
+<div class="section-title">
+<h2 data-i18n="pick_title">Pick one</h2>
+<p data-i18n="pick_sub">Same vibe. Different job.</p>
+</div>
+<div class="pick glass">
+<article class="card">
+<div class="card-top">
+<div class="card-icon"><iconify-icon icon="solar:widget-2-bold-duotone"></iconify-icon></div>
+<div>
+<h3 data-i18n="c2_title">Components V2</h3>
+<p class="card-lead" data-i18n="c2_lead">Containers, sections, text, separators, media, buttons, dropdowns. Nest stuff, slap a color on it, markdown works.</p>
+</div>
+</div>
+<div class="card-tags">
+<span class="tag" data-i18n="tag_containers">Containers</span>
+<span class="tag" data-i18n="tag_dropdowns">Dropdowns</span>
+<span class="tag" data-i18n="tag_media">Media</span>
+<span class="tag" data-i18n="tag_buttons">Buttons</span>
+</div>
+<a class="btn btn-white" href="componentsv2.html" data-i18n="open">Open</a>
+</article>
+<article class="card">
+<div class="card-top">
+<div class="card-icon"><iconify-icon icon="solar:document-bold-duotone"></iconify-icon></div>
+<div>
+<h3 data-i18n="emb_title">Embed Builder</h3>
+<p class="card-lead" data-i18n="emb_lead">Classic embeds. Stack up to 10. Fields, images, author, footer, color. The usual.</p>
+</div>
+</div>
+<div class="card-tags">
+<span class="tag" data-i18n="tag_multi">Multi-embed</span>
+<span class="tag" data-i18n="tag_fields">Fields</span>
+<span class="tag" data-i18n="tag_images">Images</span>
+<span class="tag" data-i18n="tag_color">Color</span>
+</div>
+<a class="btn btn-outline" href="embed.html" data-i18n="open">Open</a>
+</article>
+</div>
+</section>
+<section class="section">
+<div class="section-title">
+<h2 data-i18n="stats_title">Your stats</h2>
+<p data-i18n="stats_sub">Stored on this device only.</p>
+</div>
+<div class="live-stats glass">
+<div class="live-stat">
+<div class="live-stat-icon"><iconify-icon icon="solar:plain-2-bold-duotone"></iconify-icon></div>
+<div><b id="statSent">0</b><span data-i18n="stat_sent">Messages sent</span></div>
+</div>
+<div class="live-stat">
+<div class="live-stat-icon"><iconify-icon icon="solar:export-bold-duotone"></iconify-icon></div>
+<div><b id="statExports">0</b><span data-i18n="stat_exports">JSON exports</span></div>
+</div>
+<div class="live-stat">
+<div class="live-stat-icon"><iconify-icon icon="solar:import-bold-duotone"></iconify-icon></div>
+<div><b id="statImports">0</b><span data-i18n="stat_imports">JSON imports</span></div>
+</div>
+<div class="live-stat">
+<div class="live-stat-icon"><iconify-icon icon="solar:eye-bold-duotone"></iconify-icon></div>
+<div><b id="statVisits">0</b><span data-i18n="stat_visits">Page opens</span></div>
+</div>
+</div>
+<p class="live-note" data-i18n="stats_note">Counters update when you send / export / import in the builders.</p>
+</section>
+<section class="section">
+<div class="section-title">
+<h2 data-i18n="what_title">What you get</h2>
+<p data-i18n="what_sub">Runs in your browser.</p>
+</div>
+<div class="features glass">
+<div class="feature">
+<div class="feature-icon"><iconify-icon icon="solar:eye-bold-duotone"></iconify-icon></div>
+<div><h4 data-i18n="f_preview">Live preview</h4><p data-i18n="f_preview_p">Looks like Discord while you edit.</p></div>
+</div>
+<div class="feature">
+<div class="feature-icon"><iconify-icon icon="solar:pallete-2-bold-duotone"></iconify-icon></div>
+<div><h4 data-i18n="f_color">Color picker</h4><p data-i18n="f_color_p">HSV + hex. Pops in the middle.</p></div>
+</div>
+<div class="feature">
+<div class="feature-icon"><iconify-icon icon="solar:export-bold-duotone"></iconify-icon></div>
+<div><h4 data-i18n="f_io">Import / export</h4><p data-i18n="f_io_p">JSON in, JSON out. Name the file yourself.</p></div>
+</div>
+<div class="feature">
+<div class="feature-icon"><iconify-icon icon="solar:smartphone-bold-duotone"></iconify-icon></div>
+<div><h4 data-i18n="f_phone">Phone friendly</h4><p data-i18n="f_phone_p">Drawers and fat tap targets.</p></div>
+</div>
+<div class="feature">
+<div class="feature-icon"><iconify-icon icon="solar:plain-2-bold-duotone"></iconify-icon></div>
+<div><h4 data-i18n="f_hook">Webhook send</h4><p data-i18n="f_hook_p">Paste the URL. Hit send.</p></div>
+</div>
+<div class="feature">
+<div class="feature-icon"><iconify-icon icon="solar:shield-check-bold-duotone"></iconify-icon></div>
+<div><h4 data-i18n="f_priv">Private</h4><p data-i18n="f_priv_p">Webhook stays in your tab.</p></div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="section-title">
+<h2 data-i18n="about_title">About</h2>
+<p data-i18n="about_sub">Who even is this.</p>
+</div>
+<div class="about glass">
+<p data-i18n="about_1"><strong>Proton Services</strong> is a free set of Discord message builders. Components V2 and classic embeds. No account, no install, nothing uploaded to us.</p>
+<p data-i18n="about_2">You build in the browser, preview like Discord, export JSON, or send straight through your own webhook. We don’t sit in the middle of that.</p>
+<p data-i18n="about_3">Made for people who ship bot messages, status posts, and clean layouts without fighting the API by hand every time.</p>
+<div class="stats">
+<div class="stat"><b>2</b><span data-i18n="s_builders">Builders</span></div>
+<div class="stat"><b>0</b><span data-i18n="s_signups">Signups</span></div>
+<div class="stat"><b>v0.4</b><span data-i18n="s_version">Version</span></div>
+<div class="stat"><b>100%</b><span data-i18n="s_client">Client-side</span></div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="section-title">
+<h2 data-i18n="more_title">More</h2>
+<p data-i18n="more_sub">Extra pages if you need them.</p>
+</div>
+<div class="extras glass">
+<a class="extra" href="changelog.html">
+<div class="extra-left">
+<iconify-icon icon="solar:clipboard-list-bold-duotone"></iconify-icon>
+<div>
+<strong data-i18n="ch_title">Changelog</strong>
+<span data-i18n="ch_sub">What changed in each version</span>
+</div>
+</div>
+<iconify-icon class="chev" icon="solar:alt-arrow-right-bold-duotone"></iconify-icon>
+</a>
+<a class="extra" href="tos.html">
+<div class="extra-left">
+<iconify-icon icon="solar:document-text-bold-duotone"></iconify-icon>
+<div>
+<strong data-i18n="tos_title">Terms</strong>
+<span data-i18n="tos_sub">Rules. No IP grabbing. Etc.</span>
+</div>
+</div>
+<iconify-icon class="chev" icon="solar:alt-arrow-right-bold-duotone"></iconify-icon>
+</a>
+<a class="extra" href="credits.html">
+<div class="extra-left">
+<iconify-icon icon="solar:users-group-rounded-bold-duotone"></iconify-icon>
+<div>
+<strong data-i18n="cr_title">Credits</strong>
+<span data-i18n="cr_sub">People + links</span>
+</div>
+</div>
+<iconify-icon class="chev" icon="solar:alt-arrow-right-bold-duotone"></iconify-icon>
+</a>
+<a class="extra" href="settings.html">
+<div class="extra-left">
+<iconify-icon icon="solar:settings-bold-duotone"></iconify-icon>
+<div>
+<strong data-i18n="set_title">Settings</strong>
+<span data-i18n="set_sub">Glass, panels, prefs</span>
+</div>
+</div>
+<iconify-icon class="chev" icon="solar:alt-arrow-right-bold-duotone"></iconify-icon>
+</a>
+</div>
+</section>
+</div>
+<footer>
+<div class="footer-brand">
+<img src="https://raw.githubusercontent.com/t0x1c-dev/Proton-Services/main/images/proton-services-logo-backgroundtransparent.png" alt="">
+<strong>Proton Services</strong>
+</div>
+<div class="footer-links">
+<a href="componentsv2.html">Components V2</a>
+<a href="embed.html">Embed Builder</a>
+<a href="tos.html" data-i18n="tos_title">Terms</a>
+<a href="changelog.html" data-i18n="ch_title">Changelog</a>
+<a href="credits.html" data-i18n="cr_title">Credits</a>
+<a href="settings.html" data-i18n="set_title">Settings</a>
+</div>
+<p class="footer-copy" data-i18n="footer">Free Discord builders.</p>
+</footer>
+<script>
+const I18N={
+en:{
+logs:'Logs',hero_1:'Build Discord messages',hero_2:'that look good',hero_sub:'Components V2 + embeds. Preview live, dump JSON, fire a webhook.',scroll:'Scroll',
+pick_title:'Pick one',pick_sub:'Same vibe. Different job.',
+c2_title:'Components V2',c2_lead:'Containers, sections, text, separators, media, buttons, dropdowns. Nest stuff, slap a color on it, markdown works.',
+emb_title:'Embed Builder',emb_lead:'Classic embeds. Stack up to 10. Fields, images, author, footer, color. The usual.',
+open:'Open',tag_containers:'Containers',tag_dropdowns:'Dropdowns',tag_media:'Media',tag_buttons:'Buttons',tag_multi:'Multi-embed',tag_fields:'Fields',tag_images:'Images',tag_color:'Color',
+stats_title:'Your stats',stats_sub:'Stored on this device only.',stat_sent:'Messages sent',stat_exports:'JSON exports',stat_imports:'JSON imports',stat_visits:'Page opens',stats_note:'Counters update when you send / export / import in the builders.',
+what_title:'What you get',what_sub:'Runs in your browser.',
+f_preview:'Live preview',f_preview_p:'Looks like Discord while you edit.',f_color:'Color picker',f_color_p:'HSV + hex. Pops in the middle.',f_io:'Import / export',f_io_p:'JSON in, JSON out. Name the file yourself.',f_phone:'Phone friendly',f_phone_p:'Drawers and fat tap targets.',f_hook:'Webhook send',f_hook_p:'Paste the URL. Hit send.',f_priv:'Private',f_priv_p:'Webhook stays in your tab.',
+about_title:'About',about_sub:'Who even is this.',
+about_1:'Proton Services is a free set of Discord message builders. Components V2 and classic embeds. No account, no install, nothing uploaded to us.',
+about_2:'You build in the browser, preview like Discord, export JSON, or send straight through your own webhook. We don’t sit in the middle of that.',
+about_3:'Made for people who ship bot messages, status posts, and clean layouts without fighting the API by hand every time.',
+s_builders:'Builders',s_signups:'Signups',s_version:'Version',s_client:'Client-side',
+more_title:'More',more_sub:'Extra pages if you need them.',
+ch_title:'Changelog',ch_sub:'What changed in each version',tos_title:'Terms',tos_sub:'Rules. No IP grabbing. Etc.',cr_title:'Credits',cr_sub:'People + links',set_title:'Settings',set_sub:'Glass, panels, prefs',footer:'Free Discord builders.'
+},
+pt:{
+logs:'Logs',hero_1:'Monte mensagens do Discord',hero_2:'que ficam boas',hero_sub:'Components V2 + embeds. Preview ao vivo, JSON e webhook.',scroll:'Rolar',
+pick_title:'Escolhe um',pick_sub:'Mesma vibe. Trabalho diferente.',
+c2_title:'Components V2',c2_lead:'Containers, seções, texto, separadores, mídia, botões, menus. Aninha, coloca cor, markdown rola.',
+emb_title:'Embed Builder',emb_lead:'Embeds clássicos. Até 10. Campos, imagens, autor, rodapé, cor. O de sempre.',
+open:'Abrir',tag_containers:'Containers',tag_dropdowns:'Menus',tag_media:'Mídia',tag_buttons:'Botões',tag_multi:'Multi-embed',tag_fields:'Campos',tag_images:'Imagens',tag_color:'Cor',
+stats_title:'Seus números',stats_sub:'Só neste aparelho.',stat_sent:'Mensagens enviadas',stat_exports:'Exports JSON',stat_imports:'Imports JSON',stat_visits:'Aberturas da página',stats_note:'Sobe quando você envia / exporta / importa nos builders.',
+what_title:'O que você tem',what_sub:'Roda no navegador.',
+f_preview:'Preview ao vivo',f_preview_p:'Parece o Discord enquanto edita.',f_color:'Seletor de cor',f_color_p:'HSV + hex. Abre no meio.',f_io:'Import / export',f_io_p:'JSON pra dentro e pra fora. Você nomeia o arquivo.',f_phone:'No celular',f_phone_p:'Gavetas e botões grandes.',f_hook:'Enviar webhook',f_hook_p:'Cola a URL. Manda.',f_priv:'Privado',f_priv_p:'Webhook fica na sua aba.',
+about_title:'Sobre',about_sub:'Quem é isso.',
+about_1:'Proton Services é um set grátis de builders de mensagem do Discord. Components V2 e embeds clássicos. Sem conta, sem instalar, nada sobe pra gente.',
+about_2:'Você monta no navegador, vê como no Discord, exporta JSON ou manda pelo seu webhook. A gente não fica no meio.',
+about_3:'Pra quem manda status, posts de bot e layouts limpos sem brigar com a API toda hora.',
+s_builders:'Builders',s_signups:'Cadastros',s_version:'Versão',s_client:'No cliente',
+more_title:'Mais',more_sub:'Páginas extras se precisar.',
+ch_title:'Changelog',ch_sub:'O que mudou em cada versão',tos_title:'Termos',tos_sub:'Regras. Sem IP grab. Etc.',cr_title:'Créditos',cr_sub:'Pessoas + links',set_title:'Configurações',set_sub:'Glass, painéis, prefs',footer:'Builders do Discord grátis.'
+},
+es:{
+logs:'Logs',hero_1:'Monta mensajes de Discord',hero_2:'que queden bien',hero_sub:'Components V2 + embeds. Vista previa, JSON y webhook.',scroll:'Bajar',
+pick_title:'Elige uno',pick_sub:'Misma onda. Trabajo distinto.',
+c2_title:'Components V2',c2_lead:'Contenedores, secciones, texto, separadores, media, botones, menús. Anida, pon color, el markdown va.',
+emb_title:'Embed Builder',emb_lead:'Embeds clásicos. Hasta 10. Campos, imágenes, autor, pie, color. Lo de siempre.',
+open:'Abrir',tag_containers:'Contenedores',tag_dropdowns:'Menús',tag_media:'Media',tag_buttons:'Botones',tag_multi:'Multi-embed',tag_fields:'Campos',tag_images:'Imágenes',tag_color:'Color',
+stats_title:'Tus números',stats_sub:'Solo en este dispositivo.',stat_sent:'Mensajes enviados',stat_exports:'Exports JSON',stat_imports:'Imports JSON',stat_visits:'Aperturas de página',stats_note:'Suben al enviar / exportar / importar en los builders.',
+what_title:'Qué tienes',what_sub:'Va en el navegador.',
+f_preview:'Vista previa',f_preview_p:'Se ve como Discord mientras editas.',f_color:'Selector de color',f_color_p:'HSV + hex. Sale en el centro.',f_io:'Import / export',f_io_p:'JSON dentro y fuera. Tú pones el nombre.',f_phone:'En el móvil',f_phone_p:'Cajones y botones grandes.',f_hook:'Enviar webhook',f_hook_p:'Pegas la URL. Envías.',f_priv:'Privado',f_priv_p:'El webhook no sale de tu pestaña.',
+about_title:'Sobre',about_sub:'Qué es esto.',
+about_1:'Proton Services es un set gratis de builders de mensajes de Discord. Components V2 y embeds clásicos. Sin cuenta, sin instalar, nada se sube a nosotros.',
+about_2:'Montas en el navegador, ves como en Discord, exportas JSON o mandas por tu webhook. No estamos en medio.',
+about_3:'Para quien manda estados, posts de bot y layouts limpios sin pelearse con la API cada vez.',
+s_builders:'Builders',s_signups:'Registros',s_version:'Versión',s_client:'En cliente',
+more_title:'Más',more_sub:'Páginas extra si las necesitas.',
+ch_title:'Changelog',ch_sub:'Qué cambió en cada versión',tos_title:'Términos',tos_sub:'Reglas. Sin IP grab. Etc.',cr_title:'Créditos',cr_sub:'Gente + enlaces',set_title:'Ajustes',set_sub:'Cristal, paneles, prefs',footer:'Builders de Discord gratis.'
+},
+de:{
+logs:'Logs',hero_1:'Bau Discord-Nachrichten',hero_2:'die gut aussehen',hero_sub:'Components V2 + Embeds. Live-Preview, JSON, Webhook.',scroll:'Scroll',
+pick_title:'Eins wählen',pick_sub:'Gleicher Vibe. Anderer Job.',
+c2_title:'Components V2',c2_lead:'Container, Sections, Text, Trenner, Media, Buttons, Dropdowns. Verschachteln, Farbe, Markdown geht.',
+emb_title:'Embed Builder',emb_lead:'Klassische Embeds. Bis 10. Fields, Bilder, Author, Footer, Farbe. Das Übliche.',
+open:'Öffnen',tag_containers:'Container',tag_dropdowns:'Dropdowns',tag_media:'Media',tag_buttons:'Buttons',tag_multi:'Multi-Embed',tag_fields:'Fields',tag_images:'Bilder',tag_color:'Farbe',
+stats_title:'Deine Stats',stats_sub:'Nur auf diesem Gerät.',stat_sent:'Gesendete Messages',stat_exports:'JSON Exports',stat_imports:'JSON Imports',stat_visits:'Seitenaufrufe',stats_note:'Zählt hoch beim Senden / Export / Import in den Buildern.',
+what_title:'Was du kriegst',what_sub:'Läuft im Browser.',
+f_preview:'Live-Preview',f_preview_p:'Sieht aus wie Discord beim Editieren.',f_color:'Farbwähler',f_color_p:'HSV + Hex. Poppt in der Mitte.',f_io:'Import / Export',f_io_p:'JSON rein, JSON raus. Dateiname von dir.',f_phone:'Handy-tauglich',f_phone_p:'Drawers und große Taps.',f_hook:'Webhook senden',f_hook_p:'URL rein. Senden.',f_priv:'Privat',f_priv_p:'Webhook bleibt in deinem Tab.',
+about_title:'Über uns',about_sub:'Wer ist das überhaupt.',
+about_1:'Proton Services ist ein freies Set an Discord Message Buildern. Components V2 und klassische Embeds. Kein Account, keine Installation, nichts wird zu uns hochgeladen.',
+about_2:'Du baust im Browser, Preview wie Discord, JSON exportieren oder über deinen Webhook senden. Wir sitzen nicht dazwischen.',
+about_3:'Für Leute, die Bot-Messages, Status-Posts und saubere Layouts schicken, ohne jedes Mal mit der API zu kämpfen.',
+s_builders:'Builder',s_signups:'Signups',s_version:'Version',s_client:'Client-seitig',
+more_title:'Mehr',more_sub:'Extra-Seiten falls du sie brauchst.',
+ch_title:'Changelog',ch_sub:'Was sich pro Version geändert hat',tos_title:'Nutzungsbedingungen',tos_sub:'Regeln. Kein IP-Grabbing. Etc.',cr_title:'Credits',cr_sub:'Leute + Links',set_title:'Einstellungen',set_sub:'Glas, Panels, Prefs',footer:'Kostenlose Discord-Builder.'
+},
+ru:{
+logs:'Логи',hero_1:'Собирай сообщения Discord',hero_2:'которые выглядят нормально',hero_sub:'Components V2 + embeds. Превью, JSON, вебхук.',scroll:'Дальше',
+pick_title:'Выбери',pick_sub:'Тот же вайб. Другая задача.',
+c2_title:'Components V2',c2_lead:'Контейнеры, секции, текст, разделители, медиа, кнопки, списки. Вложенность, цвет, markdown работает.',
+emb_title:'Embed Builder',emb_lead:'Классические эмбеды. До 10. Поля, картинки, автор, футер, цвет. Как обычно.',
+open:'Открыть',tag_containers:'Контейнеры',tag_dropdowns:'Списки',tag_media:'Медиа',tag_buttons:'Кнопки',tag_multi:'Мульти-эмбед',tag_fields:'Поля',tag_images:'Картинки',tag_color:'Цвет',
+stats_title:'Твоя статистика',stats_sub:'Только на этом устройстве.',stat_sent:'Отправлено',stat_exports:'Экспорт JSON',stat_imports:'Импорт JSON',stat_visits:'Открытий страницы',stats_note:'Растёт при отправке / экспорте / импорте в билдерах.',
+what_title:'Что есть',what_sub:'В браузере.',
+f_preview:'Живое превью',f_preview_p:'Как в Discord, пока правишь.',f_color:'Цвет',f_color_p:'HSV + hex. По центру.',f_io:'Импорт / экспорт',f_io_p:'JSON туда-сюда. Имя файла твоё.',f_phone:'На телефоне',f_phone_p:'Шторки и крупные кнопки.',f_hook:'Вебхук',f_hook_p:'Вставил URL. Отправил.',f_priv:'Приватно',f_priv_p:'Вебхук не уходит с вкладки.',
+about_title:'О проекте',about_sub:'А это вообще кто.',
+about_1:'Proton Services — бесплатные билдеры сообщений Discord. Components V2 и классические эмбеды. Без аккаунта, без установки, к нам ничего не загружается.',
+about_2:'Собираешь в браузере, смотришь как в Discord, экспортируешь JSON или шлёшь через свой вебхук. Мы не посередине.',
+about_3:'Для тех, кто шлёт статус, посты бота и чистые лейауты без ручной войны с API каждый раз.',
+s_builders:'Билдеры',s_signups:'Регистрации',s_version:'Версия',s_client:'На клиенте',
+more_title:'Ещё',more_sub:'Доп. страницы если надо.',
+ch_title:'Changelog',ch_sub:'Что менялось по версиям',tos_title:'Условия',tos_sub:'Правила. Без IP-граббинга. И т.д.',cr_title:'Авторы',cr_sub:'Люди + ссылки',set_title:'Настройки',set_sub:'Стекло, панели, prefs',footer:'Бесплатные Discord-билдеры.'
+}
+};
+function getLang(){try{const l=localStorage.getItem('proton_lang');if(l&&I18N[l])return l}catch(e){}return'en'}
+function getQuality(){try{const q=localStorage.getItem('proton_quality');if(q==='stable'||q==='good')return q}catch(e){}return'good'}
+function applyQuality(){document.body.classList.toggle('quality-stable',getQuality()==='stable')}
+function applyI18n(){
+const lang=getLang();
+const t=I18N[lang]||I18N.en;
+document.documentElement.lang=lang==='pt'?'pt-BR':lang==='es'?'es-ES':lang;
+document.querySelectorAll('[data-i18n]').forEach(el=>{
+const k=el.getAttribute('data-i18n');
+if(!t[k])return;
+if(k==='about_1'){el.innerHTML='<strong>Proton Services</strong> '+t.about_1.replace(/^Proton Services\s*/i,'').replace(/^é /,'is ').replace(/^ist /,'').replace(/^— /,'').replace(/^es /,'');
+const rest=t.about_1;
+if(lang==='en')el.innerHTML='<strong>Proton Services</strong> is a free set of Discord message builders. Components V2 and classic embeds. No account, no install, nothing uploaded to us.';
+else if(lang==='pt')el.innerHTML='<strong>Proton Services</strong> é um set grátis de builders de mensagem do Discord. Components V2 e embeds clássicos. Sem conta, sem instalar, nada sobe pra gente.';
+else if(lang==='es')el.innerHTML='<strong>Proton Services</strong> es un set gratis de builders de mensajes de Discord. Components V2 y embeds clásicos. Sin cuenta, sin instalar, nada se sube a nosotros.';
+else if(lang==='de')el.innerHTML='<strong>Proton Services</strong> ist ein freies Set an Discord Message Buildern. Components V2 und klassische Embeds. Kein Account, keine Installation, nichts wird zu uns hochgeladen.';
+else if(lang==='ru')el.innerHTML='<strong>Proton Services</strong> — бесплатные билдеры сообщений Discord. Components V2 и классические эмбеды. Без аккаунта, без установки, к нам ничего не загружается.';
+return}
+el.textContent=t[k];
+});
+}
+function readStats(){
+let s={sent:0,exports:0,imports:0,visits:0};
+try{const raw=localStorage.getItem('proton_stats');if(raw){const p=JSON.parse(raw);s.sent=+p.sent||0;s.exports=+p.exports||0;s.imports=+p.imports||0;s.visits=+p.visits||0}}catch(e){}
+return s;
+}
+function writeStats(s){try{localStorage.setItem('proton_stats',JSON.stringify(s))}catch(e){}}
+function fmt(n){n=+n||0;if(n>=1000000)return(n/1000000).toFixed(1).replace(/\.0$/,'')+'M';if(n>=1000)return(n/1000).toFixed(1).replace(/\.0$/,'')+'k';return String(n)}
+const nav=document.getElementById('nav');
+const heroInner=document.getElementById('heroInner');
+const scrollHint=document.getElementById('scrollHint');
+const hero=document.getElementById('hero');
+function onScroll(){
+const y=window.scrollY||0;
+const h=Math.max(hero.offsetHeight,1);
+const p=Math.min(y/(h*0.55),1);
+nav.classList.toggle('scrolled',y>24);
+if(heroInner){
+const s=1-(p*0.18);
+const o=1-(p*0.85);
+heroInner.style.transform='scale('+s+') translateY('+(-p*36)+'px)';
+heroInner.style.opacity=String(Math.max(o,0));
+}
+if(scrollHint)scrollHint.style.opacity=String(Math.max(1-p*2.2,0));
+}
+window.addEventListener('scroll',onScroll,{passive:true});
+onScroll();
+const stats=readStats();
+stats.visits=(stats.visits||0)+1;
+writeStats(stats);
+const elS=document.getElementById('statSent');
+const elE=document.getElementById('statExports');
+const elI=document.getElementById('statImports');
+const elV=document.getElementById('statVisits');
+if(elS)elS.textContent=fmt(stats.sent);
+if(elE)elE.textContent=fmt(stats.exports);
+if(elI)elI.textContent=fmt(stats.imports);
+if(elV)elV.textContent=fmt(stats.visits);
+applyQuality();
+applyI18n();
+</script>
+</body>
+</html>

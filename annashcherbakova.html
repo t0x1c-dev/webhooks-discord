@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anna Shcherbakova | Proton Services</title>
+<link rel="icon" href="https://raw.githubusercontent.com/t0x1c-dev/Proton-Services/main/images/proton-services-logo-backgroundtransparent.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+<style>
+:root{--bg:#0c0c0e;--border:rgba(42,42,50,.7);--border2:#3a3a44;--text:#f4f4f5;--muted:#a1a1aa;--faint:#71717a;--glass:rgba(18,18,20,.42);--glass-edge:rgba(255,255,255,.08);--font:'Inter',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%}
+body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;line-height:1.55;-webkit-font-smoothing:antialiased;position:relative;display:flex;flex-direction:column}
+body::before{content:'';position:fixed;inset:0;background:url('https://i.imgur.com/UUw90rV.gif') center center / cover no-repeat;opacity:.65;z-index:0;pointer-events:none}
+body > *{position:relative;z-index:1}
+a{color:inherit;text-decoration:none}
+iconify-icon{display:inline-block;vertical-align:middle}
+nav{position:sticky;top:0;z-index:50;background:rgba(12,12,14,.72);backdrop-filter:blur(20px) saturate(1.2);border-bottom:1px solid var(--glass-edge);padding:0 16px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-shrink:0}
+.nav-brand{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;min-width:0}
+.nav-brand img{width:24px;height:24px;object-fit:contain;flex-shrink:0}
+.nav-brand span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav-links{display:flex;gap:6px;align-items:center;flex-shrink:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:9px 14px;border-radius:12px;border:none;font-weight:600;font-size:13px;cursor:pointer;font-family:inherit;transition:background .15s,transform .1s;white-space:nowrap}
+.btn:active{transform:scale(.98)}
+.btn iconify-icon{font-size:17px}
+.btn-white{background:#fff;color:#0c0c0e}
+.btn-white:hover{background:#e4e4e7}
+.btn-ghost{background:transparent;color:var(--muted);border:1px solid transparent;padding:9px 10px}
+.btn-ghost:hover{color:var(--text);background:rgba(255,255,255,.06)}
+.wrap{max-width:960px;margin:0 auto;padding:36px 16px 56px;width:100%;flex:1}
+.rare{display:flex;align-items:flex-start;gap:10px;padding:14px 16px;border-radius:14px;border:1px solid var(--glass-edge);background:var(--glass);backdrop-filter:blur(18px) saturate(1.25);box-shadow:0 8px 32px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.04);margin-bottom:22px}
+.rare iconify-icon{font-size:20px;color:#fff;flex-shrink:0;margin-top:1px}
+.rare p{font-size:13px;color:var(--muted);line-height:1.45}
+.rare strong{color:var(--text);font-weight:600}
+.hero{text-align:center;margin-bottom:28px}
+.hero-avatar{width:120px;height:120px;border-radius:50%;object-fit:cover;border:2px solid var(--glass-edge);box-shadow:0 12px 40px rgba(0,0,0,.45);margin:0 auto 18px;display:block}
+.hero h1{font-size:1.75rem;font-weight:800;color:#fff;letter-spacing:-.03em;margin-bottom:8px}
+.hero .sub{font-size:14px;color:var(--muted);max-width:420px;margin:0 auto 16px;line-height:1.5}
+.badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.badge{font-size:11px;font-weight:600;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--glass-edge);color:var(--muted)}
+.stack{display:flex;flex-direction:column;gap:0;border-radius:18px;overflow:hidden;border:1px solid var(--glass-edge);background:var(--glass);backdrop-filter:blur(18px) saturate(1.25);-webkit-backdrop-filter:blur(18px) saturate(1.25);box-shadow:0 8px 40px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.04);margin-bottom:20px}
+.block{padding:20px;border-bottom:1px solid var(--glass-edge)}
+.block:last-child{border-bottom:none}
+.block h2{font-size:1rem;font-weight:700;color:#fff;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.block h2 iconify-icon{font-size:20px}
+.block p{color:var(--muted);font-size:14px;line-height:1.55;margin-bottom:10px}
+.block p:last-child{margin-bottom:0}
+.block strong{color:var(--text)}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:8px}
+.gallery a{display:block;border-radius:12px;overflow:hidden;border:1px solid var(--glass-edge);background:rgba(0,0,0,.25);aspect-ratio:3/4}
+.gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s ease}
+.gallery a:hover img{transform:scale(1.04)}
+.note{font-size:12px;color:var(--faint);margin-top:10px}
+footer{border-top:1px solid var(--glass-edge);padding:22px 16px;text-align:center;background:rgba(12,12,14,.65);backdrop-filter:blur(14px);margin-top:auto;flex-shrink:0;width:100%}
+.footer-brand{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:6px}
+.footer-brand img{width:20px;height:20px;object-fit:contain}
+.footer-brand strong{font-size:13px;color:var(--muted)}
+.footer-copy{font-size:11px;color:var(--faint)}
+@media(min-width:640px){
+nav{padding:0 24px;height:56px}
+.nav-brand{font-size:16px}
+.nav-brand img{width:26px;height:26px}
+.btn{padding:10px 16px;font-size:14px}
+.wrap{padding:44px 24px 72px}
+.hero-avatar{width:148px;height:148px;margin-bottom:22px}
+.hero h1{font-size:2.2rem}
+.gallery{grid-template-columns:repeat(3,1fr);gap:10px}
+.block{padding:24px}
+}
+@media(min-width:900px){
+.gallery{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:639px){
+.nav-links .btn-ghost span{display:none}
+}
+</style>
+</head>
+<body>
+<nav>
+<a href="index.html" class="nav-brand">
+<img src="https://raw.githubusercontent.com/t0x1c-dev/Proton-Services/main/images/proton-services-logo-backgroundtransparent.png" alt="Proton">
+<span>Proton Services</span>
+</a>
+<div class="nav-links">
+<a class="btn btn-ghost" href="index.html"><iconify-icon icon="solar:home-2-bold-duotone"></iconify-icon><span>Home</span></a>
+</div>
+</nav>
+<div class="wrap">
+<div class="rare">
+<iconify-icon icon="solar:crown-bold-duotone"></iconify-icon>
+<p><strong>You found a super rare page lol.</strong> Anyways I the owner t0x1c love Anna Shcherbakova thats why you found this page loll</p>
+</div>
+<section class="hero">
+<img class="hero-avatar" src="https://commons.wikimedia.org/wiki/Special:FilePath/Shcherbakova%20in%202023.jpg" alt="Anna Shcherbakova">
+<h1>Anna Shcherbakova</h1>
+<p class="sub">Olympic champion. World champion. The programs hit different. The jumps are filthy. Straight up one of the best to ever do it.</p>
+<div class="badges">
+<span class="badge">Olympic gold 2022</span>
+<span class="badge">World champion 2021</span>
+<span class="badge">European champion 2022</span>
+<span class="badge">3× Russian champion</span>
+</div>
+</section>
+<div class="stack">
+<article class="block">
+<h2><iconify-icon icon="solar:star-bold-duotone"></iconify-icon> Why she’s him</h2>
+<p>Beijing free skate was a masterclass. Two quads when it mattered. Calm face. Clean exits. Walked out with gold and made it look normal.</p>
+<p>First woman to land a quad Lutz in senior competition. First to put two quad Lutzes in one program. Then she goes and does two quad flips in an Olympic free. That’s not luck. That’s built different.</p>
+<p>Artistry isn’t missing either. The lines. The musicality. The way a program actually tells something instead of just stacking jumps. She’s got both sides locked.</p>
+</article>
+<article class="block">
+<h2><iconify-icon icon="solar:medal-ribbons-star-bold-duotone"></iconify-icon> Hardware</h2>
+<p><strong>Olympic champion</strong> — Beijing 2022, women’s singles. Total 255.95. Free skate personal best 175.75.</p>
+<p><strong>World champion</strong> — Stockholm 2021. European gold 2022. European silver 2020. Three straight Russian titles. Grand Prix Final silver. The résumé is stacked.</p>
+</article>
+<article class="block">
+<h2><iconify-icon icon="solar:gallery-bold-duotone"></iconify-icon> Gallery</h2>
+<p>Competition shots, shows, podiums. Click any pic for full size. Sources are Wikimedia Commons.</p>
+<div class="gallery">
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/Shcherbakova%20in%202023.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Shcherbakova%20in%202023.jpg" alt="Anna 2023" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/Russian%20Nationals%202022%20Anna%20Shcherbakova.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Russian%20Nationals%202022%20Anna%20Shcherbakova.jpg" alt="Russian Nationals 2022" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/Russian%20Nationals%202021%20Anna%20Shcherbakova.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Russian%20Nationals%202021%20Anna%20Shcherbakova.jpg" alt="Russian Nationals 2021" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/Anna%20Shcherbakova%20(RUS)%202020.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Anna%20Shcherbakova%20(RUS)%202020.jpg" alt="Anna 2020" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/2020%2012%2027%20anna%20shcherbakova.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2020%2012%2027%20anna%20shcherbakova.jpg" alt="Dec 2020" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/2020%2012%2027%20anna%20shcherbakova%20(cropped).jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2020%2012%2027%20anna%20shcherbakova%20(cropped).jpg" alt="Dec 2020 crop" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/2020%2012%2027%20anna%20shcherbakova%20(cropped2).jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2020%2012%2027%20anna%20shcherbakova%20(cropped2).jpg" alt="Dec 2020 crop 2" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/2019%20Russian%20Figure%20Skating%20Championships%20Anna%20Shcherbakova%202018-12-21%2015-18-15.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2019%20Russian%20Figure%20Skating%20Championships%20Anna%20Shcherbakova%202018-12-21%2015-18-15.jpg" alt="Russian Champs 2019" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/2019%20Russian%20Figure%20Skating%20Championships%20Anna%20Shcherbakova%202018-12-21%2015-18-52%20(2).jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2019%20Russian%20Figure%20Skating%20Championships%20Anna%20Shcherbakova%202018-12-21%2015-18-52%20(2).jpg" alt="Russian Champs 2019 2" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/2019%20Russian%20Figure%20Skating%20Championships%20Anna%20Shcherbakova%202018-12-21%2015-20-04%201545442559.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2019%20Russian%20Figure%20Skating%20Championships%20Anna%20Shcherbakova%202018-12-21%2015-20-04%201545442559.jpg" alt="Russian Champs 2019 3" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/2019%20Russian%20Figure%20Skating%20Championships%20Anna%20Shcherbakova%202018-12-22%2020-33-48%20(3).jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2019%20Russian%20Figure%20Skating%20Championships%20Anna%20Shcherbakova%202018-12-22%2020-33-48%20(3).jpg" alt="Russian Champs 2019 free" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/2019%20Russian%20Figure%20Skating%20Championships%20Anna%20Shcherbakova%202018-12-22%2020-34-59%20(2).jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2019%20Russian%20Figure%20Skating%20Championships%20Anna%20Shcherbakova%202018-12-22%2020-34-59%20(2).jpg" alt="Russian Champs 2019 free 2" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/2019%20Russian%20Figure%20Skating%20Championships%20Anna%20Shcherbakova%202018-12-22%2020-36-33%20(2).jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2019%20Russian%20Figure%20Skating%20Championships%20Anna%20Shcherbakova%202018-12-22%2020-36-33%20(2).jpg" alt="Russian Champs 2019 free 3" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/2019%E2%80%932020%20Grand%20Prix%20of%20Figure%20Skating%20Final%20ladies%20singles%20medal%20ceremonies%202019%2012%2008%202667.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2019%E2%80%932020%20Grand%20Prix%20of%20Figure%20Skating%20Final%20ladies%20singles%20medal%20ceremonies%202019%2012%2008%202667.jpg" alt="GPF medal" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/2020%20European%20Figure%20Skating%20Championships%20Figure%20skating%20ladies%20singles%20medal%20ceremonies%202020%2001%2026%208374.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2020%20European%20Figure%20Skating%20Championships%20Figure%20skating%20ladies%20singles%20medal%20ceremonies%202020%2001%2026%208374.jpg" alt="Europeans 2020" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2001.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2001.jpg" alt="VTB show 1" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2002.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2002.jpg" alt="VTB show 2" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2003.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2003.jpg" alt="VTB show 3" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2004.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2004.jpg" alt="VTB show 4" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2005.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2005.jpg" alt="VTB show 5" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2006.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2006.jpg" alt="VTB show 6" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2007.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2007.jpg" alt="VTB show 7" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2008.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2008.jpg" alt="VTB show 8" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2009.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2009.jpg" alt="VTB show 9" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2010.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2010.jpg" alt="VTB show 10" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2011.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2011.jpg" alt="VTB show 11" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2012.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2012.jpg" alt="VTB show 12" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2013.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2013.jpg" alt="VTB show 13" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2014.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2014.jpg" alt="VTB show 14" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2015.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2020-02-26%20-%20Moscow%20VTB%20Arena%20Ice%20Show%20-%20Anna%20Shcherbakova%20-%2015.jpg" alt="VTB show 15" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/Anna%20Shcherbakova%20at%20the%202019%20Cup%20of%20China%20-%20Gala.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Anna%20Shcherbakova%20at%20the%202019%20Cup%20of%20China%20-%20Gala.jpg" alt="Cup of China gala" loading="lazy"></a>
+<a href="https://commons.wikimedia.org/wiki/Special:FilePath/Anna%20shcherbakova%2C%20skate%20america%202019.jpeg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Anna%20shcherbakova%2C%20skate%20america%202019.jpeg" alt="Skate America 2019" loading="lazy"></a>
+</div>
+<p class="note">Photos via Wikimedia Commons. Click through for full size + license info.</p>
+</article>
+<article class="block">
+<h2><iconify-icon icon="solar:heart-bold-duotone"></iconify-icon> Real talk</h2>
+<p>Quiet killer energy. Doesn’t need the loudest quad list in the room to own the night. Technique is nasty, programs are tasteful, and when the pressure hits she still delivers.</p>
+<p>Olympic champ at 17. World champ the year before. History-maker on the Lutz and the flips. If you’re into figure skating and you’re not watching her tape, you’re missing.</p>
+</article>
+</div>
+</div>
+<footer>
+<div class="footer-brand">
+<img src="https://raw.githubusercontent.com/t0x1c-dev/Proton-Services/main/images/proton-services-logo-backgroundtransparent.png" alt="">
+<strong>Proton Services</strong>
+</div>
+<p class="footer-copy">Private page. Not linked from the main site.</p>
+</footer>
+</body>
+</html>

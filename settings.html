@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings | Proton Services</title>
+<link rel="icon" href="https://raw.githubusercontent.com/t0x1c-dev/Proton-Services/main/images/proton-services-logo-backgroundtransparent.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+<style>
+:root{--bg:#0c0c0e;--border:rgba(42,42,50,.7);--border2:#3a3a44;--text:#f4f4f5;--muted:#a1a1aa;--faint:#71717a;--accent:#5865f2;--glass:rgba(18,18,20,.42);--glass-edge:rgba(255,255,255,.08);--font:'Inter',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%}
+body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;line-height:1.5;-webkit-font-smoothing:antialiased;position:relative;display:flex;flex-direction:column}
+body::before{content:'';position:fixed;inset:0;background:url('https://i.imgur.com/UUw90rV.gif') center center / cover no-repeat;opacity:.65;z-index:0;pointer-events:none}
+body.quality-stable::before{opacity:.35}
+body > *{position:relative;z-index:1}
+a{color:inherit;text-decoration:none}
+iconify-icon{display:inline-block;vertical-align:middle}
+nav{position:sticky;top:0;z-index:50;background:rgba(12,12,14,.72);backdrop-filter:blur(20px) saturate(1.2);border-bottom:1px solid var(--glass-edge);padding:0 16px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+body.quality-stable nav{backdrop-filter:none;background:rgba(12,12,14,.92)}
+.nav-brand{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;min-width:0}
+.nav-brand img{width:24px;height:24px;object-fit:contain;flex-shrink:0}
+.nav-brand span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav-links{display:flex;gap:6px;align-items:center}
+.icon-pill{width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border-radius:11px;background:rgba(255,255,255,.06);border:1px solid var(--glass-edge);color:var(--muted);transition:background .15s,color .15s}
+.icon-pill:hover{background:rgba(255,255,255,.1);color:var(--text)}
+.icon-pill iconify-icon{font-size:18px}
+.wrap{flex:1;width:100%;max-width:640px;margin:0 auto;padding:28px 16px 48px}
+.page-head{margin-bottom:22px}
+.page-head h1{font-size:1.45rem;font-weight:800;color:#fff;letter-spacing:-.02em;margin-bottom:6px}
+.page-head p{color:var(--muted);font-size:14px;line-height:1.45}
+.glass{border-radius:18px;overflow:hidden;border:1px solid var(--glass-edge);background:var(--glass);backdrop-filter:blur(18px) saturate(1.25);-webkit-backdrop-filter:blur(18px) saturate(1.25);box-shadow:0 8px 40px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.04);margin-bottom:16px}
+body.quality-stable .glass{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(22,22,26,.92)}
+.block{padding:18px}
+.block+.block{border-top:1px solid var(--glass-edge)}
+.block-title{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.block-title iconify-icon{font-size:20px;color:#fff}
+.block-title h2{font-size:15px;font-weight:700;color:#fff}
+.block-desc{font-size:13px;color:var(--faint);margin-bottom:14px;line-height:1.4}
+.opt-list{display:flex;flex-direction:column;gap:0;border-radius:14px;overflow:hidden;border:1px solid var(--glass-edge)}
+.opt{display:flex;align-items:center;gap:12px;padding:14px 14px;background:rgba(0,0,0,.14);border-bottom:1px solid var(--glass-edge);cursor:pointer;transition:background .15s;user-select:none}
+.opt:last-child{border-bottom:none}
+.opt:hover{background:rgba(255,255,255,.05)}
+.opt.active{background:rgba(88,101,242,.18)}
+.opt-flag{width:28px;text-align:center;font-size:18px;flex-shrink:0;line-height:1}
+.opt-text{flex:1;min-width:0}
+.opt-text strong{display:block;font-size:13.5px;font-weight:600;color:#fff}
+.opt-text span{display:block;font-size:12px;color:var(--faint);margin-top:1px}
+.opt-check{width:22px;height:22px;border-radius:50%;border:2px solid var(--border2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:border-color .15s,background .15s}
+.opt.active .opt-check{border-color:var(--accent);background:var(--accent)}
+.opt-check iconify-icon{font-size:14px;color:#fff;opacity:0}
+.opt.active .opt-check iconify-icon{opacity:1}
+.quality-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.q-card{padding:16px 14px;border-radius:14px;border:1px solid var(--glass-edge);background:rgba(0,0,0,.16);cursor:pointer;transition:border-color .15s,background .15s,transform .1s;text-align:left}
+.q-card:hover{background:rgba(255,255,255,.04)}
+.q-card.active{border-color:rgba(88,101,242,.55);background:rgba(88,101,242,.14)}
+.q-card:active{transform:scale(.98)}
+.q-card iconify-icon{font-size:22px;color:#fff;margin-bottom:8px;display:block}
+.q-card strong{display:block;font-size:13.5px;font-weight:700;color:#fff;margin-bottom:4px}
+.q-card span{display:block;font-size:12px;color:var(--faint);line-height:1.35}
+.save-bar{display:flex;gap:8px;margin-top:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:11px 16px;border-radius:12px;border:none;font-weight:600;font-size:13.5px;cursor:pointer;font-family:inherit;transition:background .15s,transform .1s;white-space:nowrap}
+.btn:active{transform:scale(.98)}
+.btn iconify-icon{font-size:17px}
+.btn-white{background:#fff;color:#0c0c0e;flex:1}
+.btn-white:hover{background:#e4e4e7}
+.btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--glass-edge);flex:1}
+.btn-ghost:hover{color:var(--text);background:rgba(255,255,255,.05)}
+.toast-stack{position:fixed;top:0;left:0;right:0;z-index:600;display:flex;flex-direction:column;align-items:center;pointer-events:none;padding:12px;padding-top:max(12px,env(safe-area-inset-top))}
+.toast{pointer-events:auto;width:min(360px,100%);background:rgba(255,255,255,.08);backdrop-filter:blur(40px) saturate(1.8);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:14px;box-shadow:0 12px 40px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.18);display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;animation:toastIn .4s cubic-bezier(.2,.9,.2,1) both}
+.toast iconify-icon{font-size:20px;color:#22c55e;flex-shrink:0}
+@keyframes toastIn{from{opacity:0;transform:translateY(-100%)}to{opacity:1;transform:translateY(0)}}
+footer{border-top:1px solid var(--glass-edge);padding:22px 16px;text-align:center;background:rgba(12,12,14,.65);backdrop-filter:blur(14px);margin-top:auto}
+body.quality-stable footer{backdrop-filter:none;background:rgba(12,12,14,.92)}
+.footer-brand{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px}
+.footer-brand img{width:20px;height:20px;object-fit:contain}
+.footer-brand strong{font-size:13px;color:var(--muted)}
+.footer-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:6px}
+.footer-links a{font-size:13px;color:var(--faint)}
+.footer-links a:hover{color:var(--text)}
+.footer-copy{font-size:11px;color:var(--faint)}
+@media(min-width:640px){
+nav{padding:0 24px}
+.wrap{padding:36px 24px 56px}
+}
+</style>
+</head>
+<body>
+<nav>
+<a href="index.html" class="nav-brand">
+<img src="https://raw.githubusercontent.com/t0x1c-dev/Proton-Services/main/images/proton-services-logo-backgroundtransparent.png" alt="Proton">
+<span>Proton Services</span>
+</a>
+<div class="nav-links">
+<a class="icon-pill" href="index.html" title="Home"><iconify-icon icon="solar:home-2-bold-duotone"></iconify-icon></a>
+</div>
+</nav>
+<div class="wrap">
+<div class="page-head">
+<h1 data-i18n="title">Settings</h1>
+<p data-i18n="subtitle">Language and how heavy the UI feels.</p>
+</div>
+<div class="glass">
+<div class="block">
+<div class="block-title">
+<iconify-icon icon="solar:global-bold-duotone"></iconify-icon>
+<h2 data-i18n="lang_title">Language</h2>
+</div>
+<p class="block-desc" data-i18n="lang_desc">Picks the language across the site. Saved on this device.</p>
+<div class="opt-list" id="langList"></div>
+</div>
+</div>
+<div class="glass">
+<div class="block">
+<div class="block-title">
+<iconify-icon icon="solar:cpu-bolt-bold-duotone"></iconify-icon>
+<h2 data-i18n="quality_title">Quality</h2>
+</div>
+<p class="block-desc" data-i18n="quality_desc">Glass looks nicer. Stable is lighter if your device lags.</p>
+<div class="quality-grid">
+<button type="button" class="q-card" data-quality="good" id="qGood">
+<iconify-icon icon="solar:magic-stick-3-bold-duotone"></iconify-icon>
+<strong data-i18n="q_good">Good</strong>
+<span data-i18n="q_good_desc">Full glass, blur, soft edges.</span>
+</button>
+<button type="button" class="q-card" data-quality="stable" id="qStable">
+<iconify-icon icon="solar:shield-check-bold-duotone"></iconify-icon>
+<strong data-i18n="q_stable">Stable</strong>
+<span data-i18n="q_stable_desc">Less blur. Runs smoother on weak phones.</span>
+</button>
+</div>
+</div>
+</div>
+<div class="save-bar">
+<button type="button" class="btn btn-ghost" onclick="location.href='index.html'" data-i18n="back">Back</button>
+<button type="button" class="btn btn-white" onclick="saveSettings()" data-i18n="save">Save</button>
+</div>
+</div>
+<footer>
+<div class="footer-brand">
+<img src="https://raw.githubusercontent.com/t0x1c-dev/Proton-Services/main/images/proton-services-logo-backgroundtransparent.png" alt="">
+<strong>Proton Services</strong>
+</div>
+<div class="footer-links">
+<a href="index.html" data-i18n="nav_home">Home</a>
+<a href="componentsv2.html">Components V2</a>
+<a href="embed.html">Embed Builder</a>
+<a href="changelog.html" data-i18n="nav_logs">Changelog</a>
+</div>
+<p class="footer-copy" data-i18n="footer">Free Discord builders.</p>
+</footer>
+<div class="toast-stack" id="toastStack"></div>
+<script>
+const LANGS=[
+{code:'en',label:'English',native:'English'},
+{code:'pt',label:'Português (Brasil)',native:'Português (Brasil)'},
+{code:'es',label:'Español (España)',native:'Español (España)'},
+{code:'de',label:'Deutsch',native:'Deutsch'},
+{code:'ru',label:'Русский',native:'Русский'}
+];
+const I18N={
+en:{
+title:'Settings',subtitle:'Language and how heavy the UI feels.',
+lang_title:'Language',lang_desc:'Picks the language across the site. Saved on this device.',
+quality_title:'Quality',quality_desc:'Glass looks nicer. Stable is lighter if your device lags.',
+q_good:'Good',q_good_desc:'Full glass, blur, soft edges.',
+q_stable:'Stable',q_stable_desc:'Less blur. Runs smoother on weak phones.',
+back:'Back',save:'Save',saved:'Settings saved',
+nav_home:'Home',nav_logs:'Changelog',footer:'Free Discord builders.'
+},
+pt:{
+title:'Configurações',subtitle:'Idioma e o peso da interface.',
+lang_title:'Idioma',lang_desc:'Define o idioma no site. Salvo neste aparelho.',
+quality_title:'Qualidade',quality_desc:'Glass fica mais bonito. Estável é mais leve se o aparelho travar.',
+q_good:'Boa',q_good_desc:'Glass completo, blur e bordas suaves.',
+q_stable:'Estável',q_stable_desc:'Menos blur. Roda melhor em celulares fracos.',
+back:'Voltar',save:'Salvar',saved:'Configurações salvas',
+nav_home:'Início',nav_logs:'Changelog',footer:'Builders do Discord grátis.'
+},
+es:{
+title:'Ajustes',subtitle:'Idioma y lo pesada que se siente la interfaz.',
+lang_title:'Idioma',lang_desc:'Elige el idioma del sitio. Se guarda en este dispositivo.',
+quality_title:'Calidad',quality_desc:'El cristal se ve mejor. Estable va más ligero si el equipo va justo.',
+q_good:'Buena',q_good_desc:'Cristal completo, desenfoque y bordes suaves.',
+q_stable:'Estable',q_stable_desc:'Menos desenfoque. Va mejor en móviles flojos.',
+back:'Volver',save:'Guardar',saved:'Ajustes guardados',
+nav_home:'Inicio',nav_logs:'Registro',footer:'Builders de Discord gratis.'
+},
+de:{
+title:'Einstellungen',subtitle:'Sprache und wie schwer sich die UI anfühlt.',
+lang_title:'Sprache',lang_desc:'Sprache für die Seite. Wird auf diesem Gerät gespeichert.',
+quality_title:'Qualität',quality_desc:'Glas sieht schöner aus. Stabil ist leichter, wenn es ruckelt.',
+q_good:'Gut',q_good_desc:'Volles Glas, Unschärfe, weiche Kanten.',
+q_stable:'Stabil',q_stable_desc:'Weniger Unschärfe. Läuft besser auf schwachen Handys.',
+back:'Zurück',save:'Speichern',saved:'Einstellungen gespeichert',
+nav_home:'Start',nav_logs:'Changelog',footer:'Kostenlose Discord-Builder.'
+},
+ru:{
+title:'Настройки',subtitle:'Язык и насколько тяжёлый интерфейс.',
+lang_title:'Язык',lang_desc:'Язык сайта. Сохраняется на этом устройстве.',
+quality_title:'Качество',quality_desc:'Стекло красивее. Стабильный режим легче, если тормозит.',
+q_good:'Хорошее',q_good_desc:'Полное стекло, размытие, мягкие края.',
+q_stable:'Стабильное',q_stable_desc:'Меньше размытия. Лучше на слабых телефонах.',
+back:'Назад',save:'Сохранить',saved:'Настройки сохранены',
+nav_home:'Главная',nav_logs:'Список изменений',footer:'Бесплатные Discord-билдеры.'
+}
+};
+let lang='en',quality='good';
+function loadPrefs(){
+try{
+const l=localStorage.getItem('proton_lang');
+if(l&&I18N[l])lang=l;
+const q=localStorage.getItem('proton_quality');
+if(q==='stable'||q==='good')quality=q;
+}catch(e){}
+}
+function applyQuality(){
+document.body.classList.toggle('quality-stable',quality==='stable');
+document.querySelectorAll('.q-card').forEach(el=>{
+el.classList.toggle('active',el.getAttribute('data-quality')===quality);
+});
+}
+function t(key){const pack=I18N[lang]||I18N.en;return pack[key]||I18N.en[key]||key}
+function applyI18n(){
+document.documentElement.lang=lang==='pt'?'pt-BR':lang==='es'?'es-ES':lang;
+document.querySelectorAll('[data-i18n]').forEach(el=>{
+const key=el.getAttribute('data-i18n');
+const val=t(key);
+if(val)el.textContent=val;
+});
+document.title=t('title')+' | Proton Services';
+}
+function renderLangs(){
+const box=document.getElementById('langList');
+box.innerHTML=LANGS.map(L=>`
+<div class="opt${L.code===lang?' active':''}" data-lang="${L.code}">
+<div class="opt-text"><strong>${L.native}</strong><span>${L.label}</span></div>
+<div class="opt-check"><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon></div>
+</div>`).join('');
+box.querySelectorAll('.opt').forEach(el=>{
+el.addEventListener('click',()=>{
+lang=el.getAttribute('data-lang');
+renderLangs();
+applyI18n();
+});
+});
+}
+function toast(msg){
+const stack=document.getElementById('toastStack');
+const el=document.createElement('div');
+el.className='toast';
+el.innerHTML=`<iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span>${msg}</span>`;
+stack.appendChild(el);
+setTimeout(()=>el.remove(),2800);
+}
+function saveSettings(){
+try{
+localStorage.setItem('proton_lang',lang);
+localStorage.setItem('proton_quality',quality);
+}catch(e){}
+applyQuality();
+applyI18n();
+toast(t('saved'));
+}
+document.getElementById('qGood').addEventListener('click',()=>{quality='good';applyQuality()});
+document.getElementById('qStable').addEventListener('click',()=>{quality='stable';applyQuality()});
+loadPrefs();
+renderLangs();
+applyI18n();
+applyQuality();
+</script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service | Proton Services</title>
+<link rel="icon" href="https://raw.githubusercontent.com/t0x1c-dev/Proton-Services/main/images/proton-services-logo-backgroundtransparent.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+<style>
+:root{--bg:#0c0c0e;--border:rgba(42,42,50,.7);--border2:#3a3a44;--text:#f4f4f5;--muted:#a1a1aa;--faint:#71717a;--glass:rgba(18,18,20,.42);--glass-edge:rgba(255,255,255,.08);--font:'Inter',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%}
+body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;line-height:1.55;-webkit-font-smoothing:antialiased;position:relative;display:flex;flex-direction:column}
+body::before{content:'';position:fixed;inset:0;background:url('https://i.imgur.com/UUw90rV.gif') center center / cover no-repeat;opacity:.65;z-index:0;pointer-events:none}
+body.quality-stable::before{opacity:.35}
+body > *{position:relative;z-index:1}
+a{color:inherit;text-decoration:none}
+iconify-icon{display:inline-block;vertical-align:middle}
+nav{position:sticky;top:0;z-index:50;background:rgba(12,12,14,.72);backdrop-filter:blur(20px) saturate(1.2);border-bottom:1px solid var(--glass-edge);padding:0 16px;height:54px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-shrink:0}
+body.quality-stable nav{backdrop-filter:none;background:rgba(12,12,14,.92)}
+.nav-brand{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;min-width:0}
+.nav-brand img{width:24px;height:24px;object-fit:contain;flex-shrink:0}
+.nav-brand span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav-links{display:flex;gap:6px;align-items:center;flex-shrink:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:9px 14px;border-radius:12px;border:none;font-weight:600;font-size:13px;cursor:pointer;font-family:inherit;transition:background .15s,transform .1s,border-color .15s;white-space:nowrap}
+.btn:active{transform:scale(.98)}
+.btn iconify-icon{font-size:17px}
+.btn-white{background:#fff;color:#0c0c0e}
+.btn-white:hover{background:#e4e4e7}
+.btn-ghost{background:transparent;color:var(--muted);border:1px solid transparent;padding:9px 10px}
+.btn-ghost:hover{color:var(--text);background:rgba(255,255,255,.06)}
+.icon-pill{width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border-radius:11px;background:rgba(255,255,255,.06);border:1px solid var(--glass-edge);color:var(--muted);transition:background .15s,color .15s}
+.icon-pill:hover{background:rgba(255,255,255,.1);color:var(--text)}
+.icon-pill iconify-icon{font-size:18px}
+.wrap{max-width:720px;margin:0 auto;padding:36px 16px 56px;flex:1;width:100%}
+.page-head{margin-bottom:22px}
+.page-head .icon-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.page-head .icon-box{width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid var(--glass-edge);display:flex;align-items:center;justify-content:center;color:#fff}
+.page-head .icon-box iconify-icon{font-size:24px}
+.page-head h1{font-size:1.6rem;font-weight:800;color:#fff;letter-spacing:-.02em;margin-bottom:8px}
+.page-head p{color:var(--muted);font-size:14px}
+.stack{display:flex;flex-direction:column;gap:0;border-radius:18px;overflow:hidden;border:1px solid var(--glass-edge);background:var(--glass);backdrop-filter:blur(18px) saturate(1.25);-webkit-backdrop-filter:blur(18px) saturate(1.25);box-shadow:0 8px 40px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.04)}
+body.quality-stable .stack{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(22,22,26,.92)}
+.card{padding:20px;border-bottom:1px solid var(--glass-edge)}
+.card:last-child{border-bottom:none}
+.card h2{font-size:.98rem;font-weight:700;color:#fff;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.card h2 iconify-icon{font-size:20px;color:#e4e4e7;flex-shrink:0}
+.card p,.card li{color:var(--muted);font-size:14px;line-height:1.55}
+.card p{margin-bottom:10px}
+.card p:last-child{margin-bottom:0}
+.card ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin:8px 0 0}
+.card li{display:flex;gap:10px;align-items:flex-start}
+.card li iconify-icon{font-size:16px;color:var(--faint);flex-shrink:0;margin-top:2px}
+.card strong{color:var(--text);font-weight:600}
+.note{font-size:13px;color:var(--faint);margin-top:8px}
+.warn{border-left:3px solid rgba(234,179,8,.7);padding-left:12px;margin-top:8px}
+footer{border-top:1px solid var(--glass-edge);padding:24px 16px;text-align:center;background:rgba(12,12,14,.65);backdrop-filter:blur(14px);margin-top:auto;flex-shrink:0}
+body.quality-stable footer{backdrop-filter:none;background:rgba(12,12,14,.92)}
+.footer-brand{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:10px}
+.footer-brand img{width:20px;height:20px;object-fit:contain}
+.footer-brand strong{font-size:13px;color:var(--muted)}
+.footer-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:8px}
+.footer-links a{font-size:13px;color:var(--faint)}
+.footer-links a:hover{color:var(--text)}
+.footer-copy{font-size:11px;color:var(--faint)}
+@media(min-width:640px){
+nav{padding:0 24px;height:56px}
+.nav-brand{font-size:16px}
+.nav-brand img{width:26px;height:26px}
+.btn{padding:10px 16px;font-size:14px}
+.wrap{padding:44px 24px 72px}
+.page-head h1{font-size:1.9rem}
+.card{padding:24px}
+}
+@media(max-width:639px){
+.nav-links .btn-ghost span{display:none}
+}
+</style>
+</head>
+<body>
+<nav>
+<a href="index.html" class="nav-brand">
+<img src="https://raw.githubusercontent.com/t0x1c-dev/Proton-Services/main/images/proton-services-logo-backgroundtransparent.png" alt="Proton">
+<span>Proton Services</span>
+</a>
+<div class="nav-links">
+<a class="icon-pill" href="settings.html" title="Settings"><iconify-icon icon="solar:settings-bold-duotone"></iconify-icon></a>
+<a class="btn btn-ghost" href="index.html"><iconify-icon icon="solar:home-2-bold-duotone"></iconify-icon><span data-i18n="nav_home">Home</span></a>
+<a class="btn btn-white" href="componentsv2.html" data-i18n="nav_builder">Open Builder</a>
+</div>
+</nav>
+<div class="wrap">
+<div class="page-head">
+<div class="icon-row">
+<div class="icon-box"><iconify-icon icon="solar:document-text-bold-duotone"></iconify-icon></div>
+</div>
+<h1 data-i18n="title">Terms of Service</h1>
+<p data-i18n="updated">Last updated: September 13, 2026. Using Proton Services means you agree to this.</p>
+</div>
+<div class="stack" id="tosStack"></div>
+</div>
+<footer>
+<div class="footer-brand">
+<img src="https://raw.githubusercontent.com/t0x1c-dev/Proton-Services/main/images/proton-services-logo-backgroundtransparent.png" alt="">
+<strong>Proton Services</strong>
+</div>
+<div class="footer-links">
+<a href="index.html" data-i18n="nav_home">Home</a>
+<a href="componentsv2.html">Components V2</a>
+<a href="embed.html">Embed Builder</a>
+<a href="changelog.html" data-i18n="nav_logs">Changelog</a>
+<a href="credits.html" data-i18n="nav_credits">Credits</a>
+<a href="settings.html" data-i18n="nav_settings">Settings</a>
+</div>
+<p class="footer-copy" data-i18n="footer">Free Discord builders.</p>
+</footer>
+<script>
+const I18N={
+en:{
+title:'Terms of Service',
+updated:'Last updated: September 13, 2026. Using Proton Services means you agree to this.',
+nav_home:'Home',nav_builder:'Open Builder',nav_logs:'Changelog',nav_credits:'Credits',nav_settings:'Settings',footer:'Free Discord builders.',
+sections:[
+{icon:'solar:info-circle-bold-duotone',h:'What this is',ps:['Proton Services is a set of free browser tools for building Discord messages. Components V2 and classic embeds. Stuff runs in your tab. We do not host your messages or keep your webhook URLs on our servers.','Opening or using the site, builders, or related pages means you accept these terms. Don’t agree? Don’t use the tools.']},
+{icon:'solar:user-check-bold-duotone',h:'Who can use it',ps:['Be old enough to use Discord and follow Discord’s rules where you live. Using this for a server, bot, or company still means you’re on the hook for what gets sent.'],ul_ok:['Personal use, bots, servers, projects are fine if you follow this page and Discord’s rules.','You’re responsible for every webhook URL you paste and every payload you send.']},
+{icon:'solar:key-bold-duotone',h:'Webhook URLs',ps:['We design the builders so your webhook URL stays in your browser. We don’t need it on our backend for the core tools.'],warn:'Still your problem if it leaks. Screen shares, screenshots, screen recordings, browser extensions, malware, shared devices, compromised accounts, “help me debug” DMs, public repos, and bad hosting setups can still expose a URL. If someone gets your webhook and abuses it, that is not on us. Rotate the webhook in Discord Server Settings if anything looks off.',ul_ok:['Treat webhook URLs like passwords. Don’t post them in public chats or tickets.','Anyone with the URL can post as that webhook until you reset it.','We are not responsible for leaked, shared, or stolen webhook links.']},
+{icon:'solar:danger-bold-duotone',h:'Stuff you cannot do',ps:['Do not use Proton Services to:'],ul_no:['Grab IPs or track people without clear, legal consent. No IP loggers, sneaky tracking, or deanonymize setups.','Phish, scam, or social engineer. Fake login, fake nitro, fake verify, credential theft, etc.','Spread malware. Stealers, RATs, sketchy “free” cracks, etc.','Spam or mass abuse webhooks. Flooding, raids, unsolicited mass pings.','Harass, dox, or threaten people.','Break the law. Fraud, illegal content, anything criminal where you are or where Discord operates.','Bypass Discord safety systems on purpose or help others do that.','Pretend this is official Discord software or that we host messages server-side when we don’t.','Attack or overload Discord, our pages, or other services through the tools.'],note:'If it would get a normal Discord account banned or in legal trouble, don’t do it here either.'},
+{icon:'solar:shield-network-bold-duotone',h:'Discord’s rules still apply',ps:['These tools talk to Discord through your webhooks. Discord’s Terms, Community Guidelines, and Developer Policy still apply to what you send.','We are not affiliated with Discord. They can rate-limit, kill webhooks, or ban accounts. That’s between you and them. We can’t reverse it.']},
+{icon:'solar:lock-keyhole-bold-duotone',h:'Privacy and data',ps:['Builders are meant to run in your browser.','Don’t paste secrets you can’t afford to expose. Extensions and malware can still read page data.'],ul_ok:['Webhook URLs, message content, and JSON stay on your device unless you send them somewhere.','No account required. We don’t store your payloads on a backend for the core builders.','TOS agreement may be saved in localStorage on your device so you don’t get the gate every visit.','Hosting (GitHub Pages, CDN, etc.) can still see normal web logs like IP and user agent. That’s standard for any site.']},
+{icon:'solar:code-bold-duotone',h:'How the tools work',ps:['Preview is an approximation of Discord. Layouts, limits, and component rules can change. What you see here might not match production forever.','Import/export JSON is for convenience. Bad JSON can fail on send. Local image uploads are for preview. Sending usually needs public URLs Discord can fetch.','Interactive bits (non-link buttons, selects, etc.) often need a bot. Webhooks alone won’t make those fully work.','Embed builder still works. Feature updates there are frozen. UI can still get polish. New feature work goes to Components V2.']},
+{icon:'solar:forbidden-bold-duotone',h:'No warranty',ps:['Site and tools are as is and as available. No promise they always work, stay online, or stay compatible with Discord.'],ul_no:['No guarantee of uptime, accuracy, or fitness for a specific job.','No guarantee previews match Discord forever.','We can change, break, or remove features without notice.']},
+{icon:'solar:scale-bold-duotone',h:'Liability',ps:['You use the tools at your own risk. To the max extent the law allows, Proton Services and anyone behind it are not liable for:','If something goes wrong because of how you used a webhook or payload, that’s on you.'],ul_no:['Messages you send, including spam, bans, or server damage','Leaked webhook URLs, lost data, or Discord enforcement','Third-party actions (Discord, hosts, ISPs, other users)','Indirect, incidental, or consequential damages']},
+{icon:'solar:copyright-bold-duotone',h:'Ownership',ps:['Proton Services branding, logo, and site design belong to the project. Don’t pretend Discord Inc. made these tools.','Content you build is yours, subject to Discord’s rules and the law.']},
+{icon:'solar:refresh-bold-duotone',h:'Changes',ps:['We can update these terms anytime. The “Last updated” line changes when we do. Keep using the site after a change and you’re on the new version.','We can also restrict access, remove pages, or shut things down if needed, including for abuse or legal reasons.']},
+{icon:'solar:link-bold-duotone',h:'Third-party stuff',ps:['Fonts, icons, images, or scripts may load from third parties. Their terms apply to those services. We don’t control them.']},
+{icon:'solar:hamburger-menu-bold-duotone',h:'General',ps:['If one part of these terms is invalid, the rest still applies. This is the whole agreement for the site and tools unless we publish something more specific for a feature.','Not enforcing something once doesn’t mean we give up the right later.']},
+{icon:'solar:chat-round-bold-duotone',h:'Contact',ps:['Questions about these terms or the project can go through whatever contact is listed on the official Proton Services pages or repo you got the tools from.'],note:'Not personal legal advice. Need that? Talk to a lawyer where you live.'}
+]
+},
+pt:{
+title:'Termos de Serviço',
+updated:'Atualizado em: 13 de setembro de 2026. Usar o Proton Services significa que você concorda com isto.',
+nav_home:'Início',nav_builder:'Abrir Builder',nav_logs:'Changelog',nav_credits:'Créditos',nav_settings:'Configurações',footer:'Builders do Discord grátis.',
+sections:[
+{icon:'solar:info-circle-bold-duotone',h:'O que é isto',ps:['Proton Services é um set grátis de tools no navegador pra montar mensagens do Discord. Components V2 e embeds clássicos. Roda na sua aba. A gente não hospeda suas mensagens nem guarda suas URLs de webhook nos nossos servidores.','Abrir ou usar o site, os builders ou páginas ligadas significa que você aceita estes termos. Não concorda? Não use.']},
+{icon:'solar:user-check-bold-duotone',h:'Quem pode usar',ps:['Tenha idade pra usar o Discord e siga as regras do Discord onde você mora. Usar isto pra servidor, bot ou empresa ainda deixa você responsável pelo que for enviado.'],ul_ok:['Uso pessoal, bots, servidores e projetos ok se seguir esta página e as regras do Discord.','Você responde por toda URL de webhook que colar e por todo payload que mandar.']},
+{icon:'solar:key-bold-duotone',h:'URLs de webhook',ps:['Os builders são feitos pra URL ficar no seu navegador. Não precisamos dela no backend pras tools principais.'],warn:'Ainda é problema seu se vazar. Compartilhar tela, print, gravação, extensão, malware, aparelho compartilhado, conta comprometida, DM de “me ajuda a debugar”, repo público e hosting ruim ainda podem expor a URL. Se alguém pegar seu webhook e abusar, não é com a gente. Troque o webhook nas configs do servidor do Discord se algo parecer estranho.',ul_ok:['Trate URL de webhook como senha. Não poste em chat público ou ticket.','Quem tem a URL pode postar como aquele webhook até você resetar.','Não somos responsáveis por link de webhook vazado, compartilhado ou roubado.']},
+{icon:'solar:danger-bold-duotone',h:'O que você não pode fazer',ps:['Não use o Proton Services pra:'],ul_no:['Pegar IP ou rastrear gente sem consentimento claro e legal. Sem IP logger, tracking escondido ou deanonymize.','Phishing, golpe ou engenharia social. Login falso, nitro falso, verify falso, roubo de credencial, etc.','Espalhar malware. Stealer, RAT, crack “grátis” suspeito, etc.','Spam ou abuso em massa de webhook. Flood, raid, ping em massa sem pedido.','Assediar, doxxar ou ameaçar gente.','Quebrar a lei. Fraude, conteúdo ilegal, qualquer crime onde você está ou onde o Discord opera.','Furar sistema de segurança do Discord de propósito ou ajudar outros a fazer isso.','Fingir que isto é software oficial do Discord ou que hospedamos mensagens no servidor quando não hospedamos.','Atacar ou sobrecarregar Discord, nossas páginas ou outros serviços pelas tools.'],note:'Se isso baniria uma conta normal do Discord ou te meteria em problema legal, não faça aqui também.'},
+{icon:'solar:shield-network-bold-duotone',h:'As regras do Discord ainda valem',ps:['Estas tools falam com o Discord pelos seus webhooks. Termos, diretrizes da comunidade e política de dev do Discord ainda valem pro que você manda.','Não somos afiliados ao Discord. Eles podem limitar, matar webhook ou banir conta. Isso é entre você e eles. A gente não reverte.']},
+{icon:'solar:lock-keyhole-bold-duotone',h:'Privacidade e dados',ps:['Os builders são feitos pra rodar no seu navegador.','Não cole segredo que não pode vazar. Extensão e malware ainda podem ler a página.'],ul_ok:['URL de webhook, conteúdo e JSON ficam no seu aparelho a menos que você mande pra outro lugar.','Sem conta. Não guardamos seus payloads num backend pras tools principais.','O aceite dos termos pode ficar no localStorage do aparelho pra não mostrar o gate toda vez.','Hosting (GitHub Pages, CDN, etc.) ainda pode ver log normal de web tipo IP e user agent. Isso é padrão em qualquer site.']},
+{icon:'solar:code-bold-duotone',h:'Como as tools funcionam',ps:['O preview é uma aproximação do Discord. Layout, limite e regra de componente podem mudar. O que você vê aqui pode não bater com produção pra sempre.','Import/export JSON é pra facilitar. JSON ruim pode falhar no envio. Upload local de imagem é pro preview. Pra enviar costuma precisar de URL pública que o Discord alcance.','Partes interativas (botão que não é link, select, etc.) muitas vezes precisam de bot. Só webhook não deixa isso 100%.','Embed builder ainda funciona. Update de feature ali tá congelado. UI ainda pode ganhar polish. Feature nova vai pro Components V2.']},
+{icon:'solar:forbidden-bold-duotone',h:'Sem garantia',ps:['Site e tools são como estão e como disponíveis. Sem promessa de sempre funcionar, ficar no ar ou continuar compatível com o Discord.'],ul_no:['Sem garantia de uptime, precisão ou servir pra um uso específico.','Sem garantia de que o preview bata com o Discord pra sempre.','Podemos mudar, quebrar ou remover feature sem aviso.']},
+{icon:'solar:scale-bold-duotone',h:'Responsabilidade',ps:['Você usa as tools por sua conta e risco. No máximo que a lei permitir, Proton Services e quem está por trás não respondem por:','Se algo der errado por como você usou webhook ou payload, a conta é sua.'],ul_no:['Mensagens que você manda, incluindo spam, ban ou dano em servidor','URL de webhook vazada, dado perdido ou ação do Discord','Ação de terceiro (Discord, host, ISP, outros usuários)','Dano indireto, incidental ou consequente']},
+{icon:'solar:copyright-bold-duotone',h:'Propriedade',ps:['Marca, logo e design do site do Proton Services são do projeto. Não finja que a Discord Inc. fez estas tools.','O conteúdo que você monta é seu, sujeito às regras do Discord e à lei.']},
+{icon:'solar:refresh-bold-duotone',h:'Mudanças',ps:['Podemos atualizar estes termos a qualquer hora. A linha “Atualizado em” muda quando isso acontece. Continuar usando o site depois da mudança é aceitar a versão nova.','Também podemos restringir acesso, tirar página ou desligar coisa se precisar, inclusive por abuso ou motivo legal.']},
+{icon:'solar:link-bold-duotone',h:'Coisa de terceiro',ps:['Fonte, ícone, imagem ou script podem carregar de terceiro. Os termos deles valem pra esses serviços. A gente não controla.']},
+{icon:'solar:hamburger-menu-bold-duotone',h:'Geral',ps:['Se uma parte destes termos for inválida, o resto continua valendo. Este é o acordo inteiro pro site e tools, salvo se publicarmos algo mais específico pra uma feature.','Não cobrar uma vez não significa abrir mão do direito depois.']},
+{icon:'solar:chat-round-bold-duotone',h:'Contato',ps:['Dúvida sobre estes termos ou o projeto pode ir pelo contato listado nas páginas oficiais do Proton Services ou no repo de onde você pegou as tools.'],note:'Isto não é conselho jurídico pessoal. Precisa disso? Fala com um advogado onde você mora.'}
+]
+},
+es:{
+title:'Términos de servicio',
+updated:'Última actualización: 13 de septiembre de 2026. Usar Proton Services implica que aceptas esto.',
+nav_home:'Inicio',nav_builder:'Abrir Builder',nav_logs:'Registro',nav_credits:'Créditos',nav_settings:'Ajustes',footer:'Builders de Discord gratis.',
+sections:[
+{icon:'solar:info-circle-bold-duotone',h:'Qué es esto',ps:['Proton Services es un set gratis de tools en el navegador para montar mensajes de Discord. Components V2 y embeds clásicos. Va en tu pestaña. No alojamos tus mensajes ni guardamos tus URLs de webhook en nuestros servidores.','Abrir o usar el sitio, los builders o páginas relacionadas implica que aceptas estos términos. ¿No estás de acuerdo? No uses las tools.']},
+{icon:'solar:user-check-bold-duotone',h:'Quién puede usarlo',ps:['Sé lo bastante mayor para usar Discord y sigue las normas de Discord donde vivas. Usarlo para un servidor, bot o empresa sigue siendo tu responsabilidad por lo que se envíe.'],ul_ok:['Uso personal, bots, servidores y proyectos están bien si sigues esta página y las normas de Discord.','Respondes de cada URL de webhook que pegues y de cada payload que envíes.']},
+{icon:'solar:key-bold-duotone',h:'URLs de webhook',ps:['Diseñamos los builders para que la URL se quede en tu navegador. No la necesitamos en el backend para las tools principales.'],warn:'Sigue siendo tu problema si se filtra. Compartir pantalla, capturas, grabaciones, extensiones, malware, dispositivos compartidos, cuentas comprometidas, DMs de “ayúdame a depurar”, repos públicos y un hosting malo pueden exponer la URL. Si alguien coge tu webhook y abusa, no es cosa nuestra. Rota el webhook en Ajustes del servidor de Discord si algo huele mal.',ul_ok:['Trata las URLs de webhook como contraseñas. No las publiques en chats o tickets.','Cualquiera con la URL puede publicar como ese webhook hasta que lo resets.','No respondemos por enlaces de webhook filtrados, compartidos o robados.']},
+{icon:'solar:danger-bold-duotone',h:'Lo que no puedes hacer',ps:['No uses Proton Services para:'],ul_no:['Capturar IPs o rastrear gente sin consentimiento claro y legal. Sin IP loggers, tracking oculto ni deanonymize.','Phishing, estafa o ingeniería social. Login falso, nitro falso, verify falso, robo de credenciales, etc.','Difundir malware. Stealers, RATs, cracks “gratis” raros, etc.','Spam o abuso masivo de webhooks. Flood, raids, pings masivos no pedidos.','Acosar, doxxear o amenazar a gente.','Romper la ley. Fraude, contenido ilegal, lo que sea delictivo donde estés o donde opere Discord.','Saltar a propósito los sistemas de seguridad de Discord o ayudar a otros a hacerlo.','Fingir que esto es software oficial de Discord o que alojamos mensajes en servidor cuando no lo hacemos.','Atacar o saturar Discord, nuestras páginas u otros servicios con las tools.'],note:'Si eso banearía una cuenta normal de Discord o te metería en líos legales, tampoco lo hagas aquí.'},
+{icon:'solar:shield-network-bold-duotone',h:'Las normas de Discord siguen aplicando',ps:['Estas tools hablan con Discord a través de tus webhooks. Los Términos, las Normas de la comunidad y la Política de desarrolladores de Discord siguen aplicando a lo que envías.','No estamos afiliados a Discord. Pueden limitar, matar webhooks o banear cuentas. Eso es entre tú y ellos. Nosotros no lo revertimos.']},
+{icon:'solar:lock-keyhole-bold-duotone',h:'Privacidad y datos',ps:['Los builders están pensados para correr en tu navegador.','No pegues secretos que no puedas permitirte exponer. Extensiones y malware aún pueden leer la página.'],ul_ok:['URLs de webhook, contenido y JSON se quedan en tu dispositivo salvo que tú los envíes a otro sitio.','Sin cuenta. No guardamos tus payloads en un backend para las tools principales.','El acuerdo de términos puede guardarse en localStorage en tu dispositivo para no ver la puerta cada visita.','El hosting (GitHub Pages, CDN, etc.) aún puede ver logs web normales como IP y user agent. Es estándar en cualquier sitio.']},
+{icon:'solar:code-bold-duotone',h:'Cómo funcionan las tools',ps:['La vista previa es una aproximación de Discord. Layouts, límites y reglas de componentes pueden cambiar. Lo que ves aquí puede no coincidir con producción para siempre.','Import/export JSON es por comodidad. Un JSON malo puede fallar al enviar. Las subidas locales de imagen son para la vista previa. Para enviar suele hacer falta una URL pública que Discord pueda fetchear.','Lo interactivo (botones que no son link, selects, etc.) a menudo necesita un bot. Solo con webhook no queda del todo.','El embed builder sigue funcionando. Las updates de features ahí están congeladas. La UI aún puede pulirse. El trabajo de features nuevas va a Components V2.']},
+{icon:'solar:forbidden-bold-duotone',h:'Sin garantía',ps:['El sitio y las tools se ofrecen tal cual y según disponibilidad. Sin promesa de que siempre funcionen, estén online o sigan compatibles con Discord.'],ul_no:['Sin garantía de uptime, precisión o idoneidad para un uso concreto.','Sin garantía de que las vistas previas coincidan con Discord para siempre.','Podemos cambiar, romper o quitar features sin aviso.']},
+{icon:'solar:scale-bold-duotone',h:'Responsabilidad',ps:['Usas las tools bajo tu propio riesgo. En la medida máxima que permita la ley, Proton Services y quien esté detrás no responden por:','Si algo sale mal por cómo usaste un webhook o un payload, es cosa tuya.'],ul_no:['Mensajes que envías, incluido spam, bans o daño al servidor','URLs de webhook filtradas, datos perdidos o actuación de Discord','Acciones de terceros (Discord, hosts, ISPs, otros usuarios)','Daños indirectos, incidentales o consecuentes']},
+{icon:'solar:copyright-bold-duotone',h:'Propiedad',ps:['La marca, el logo y el diseño del sitio de Proton Services son del proyecto. No finjas que Discord Inc. hizo estas tools.','El contenido que montas es tuyo, sujeto a las normas de Discord y a la ley.']},
+{icon:'solar:refresh-bold-duotone',h:'Cambios',ps:['Podemos actualizar estos términos cuando sea. La línea de “Última actualización” cambia cuando lo hacemos. Seguir usando el sitio tras un cambio implica la versión nueva.','También podemos restringir el acceso, quitar páginas o apagar cosas si hace falta, incluido por abuso o motivos legales.']},
+{icon:'solar:link-bold-duotone',h:'Cosas de terceros',ps:['Fuentes, iconos, imágenes o scripts pueden cargarse de terceros. Sus términos aplican a esos servicios. Nosotros no los controlamos.']},
+{icon:'solar:hamburger-menu-bold-duotone',h:'General',ps:['Si una parte de estos términos no vale, el resto sigue. Este es el acuerdo completo para el sitio y las tools, salvo que publiquemos algo más concreto para una feature.','No hacer cumplir algo una vez no implica renunciar al derecho más tarde.']},
+{icon:'solar:chat-round-bold-duotone',h:'Contacto',ps:['Preguntas sobre estos términos o el proyecto pueden ir por el contacto que figure en las páginas oficiales de Proton Services o en el repo de donde sacaste las tools.'],note:'Esto no es asesoramiento legal personal. ¿Lo necesitas? Habla con un abogado donde vivas.'}
+]
+},
+de:{
+title:'Nutzungsbedingungen',
+updated:'Zuletzt aktualisiert: 13. September 2026. Proton Services zu nutzen heißt, du stimmst dem zu.',
+nav_home:'Start',nav_builder:'Builder öffnen',nav_logs:'Changelog',nav_credits:'Credits',nav_settings:'Einstellungen',footer:'Kostenlose Discord-Builder.',
+sections:[
+{icon:'solar:info-circle-bold-duotone',h:'Was das ist',ps:['Proton Services ist ein freies Set an Browser-Tools zum Bauen von Discord-Nachrichten. Components V2 und klassische Embeds. Läuft in deinem Tab. Wir hosten deine Messages nicht und speichern deine Webhook-URLs nicht auf unseren Servern.','Site, Builder oder passende Seiten zu öffnen oder zu nutzen heißt, du akzeptierst diese Bedingungen. Passt nicht? Dann nicht nutzen.']},
+{icon:'solar:user-check-bold-duotone',h:'Wer darf nutzen',ps:['Sei alt genug für Discord und halte dich an Discords Regeln dort, wo du lebst. Nutzung für Server, Bot oder Firma heißt trotzdem: du haftest fürs Gesendete.'],ul_ok:['Privat, Bots, Server, Projekte sind ok, wenn du diese Seite und Discords Regeln einhältst.','Du bist verantwortlich für jede Webhook-URL, die du einfügst, und jedes Payload, das du sendest.']},
+{icon:'solar:key-bold-duotone',h:'Webhook-URLs',ps:['Die Builder sind so gebaut, dass die URL in deinem Browser bleibt. Für die Kern-Tools brauchen wir sie nicht im Backend.'],warn:'Immer noch dein Problem, wenn sie leakt. Screenshares, Screenshots, Aufnahmen, Extensions, Malware, geteilte Geräte, gehackte Accounts, „hilf mir debuggen“-DMs, öffentliche Repos und schlechtes Hosting können die URL trotzdem freilegen. Wenn jemand deinen Webhook missbraucht, liegt das nicht bei uns. Rotiere den Webhook in den Discord-Servereinstellungen, wenn etwas komisch wirkt.',ul_ok:['Behandle Webhook-URLs wie Passwörter. Nicht in öffentliche Chats oder Tickets posten.','Wer die URL hat, kann als dieser Webhook posten, bis du ihn zurücksetzt.','Wir haften nicht für geleakte, geteilte oder gestohlene Webhook-Links.']},
+{icon:'solar:danger-bold-duotone',h:'Was du nicht darfst',ps:['Nutze Proton Services nicht, um:'],ul_no:['IPs zu greifen oder Leute ohne klares, legales Einverständnis zu tracken. Keine IP-Logger, kein heimliches Tracking, kein Deanonymize.','Zu phishen, zu scammen oder Social Engineering zu machen. Fake-Login, Fake-Nitro, Fake-Verify, Credential-Diebstahl usw.','Malware zu verbreiten. Stealers, RATs, zwielichtige „kostenlose“ Cracks usw.','Webhooks zu spammen oder massenhaft zu missbrauchen. Floods, Raids, unaufgeforderte Massen-Pings.','Leute zu belästigen, zu doxxen oder zu bedrohen.','Gesetze zu brechen. Betrug, illegale Inhalte, alles Strafbare dort, wo du bist oder Discord operiert.','Discords Sicherheits-Systeme absichtlich zu umgehen oder anderen dabei zu helfen.','So zu tun, als wäre das offizielle Discord-Software oder als würden wir Messages serverseitig hosten, wenn wir das nicht tun.','Discord, unsere Seiten oder andere Dienste über die Tools anzugreifen oder zu überlasten.'],note:'Würde das einen normalen Discord-Account bannen oder dich rechtlich in Schwierigkeiten bringen, mach es hier auch nicht.'},
+{icon:'solar:shield-network-bold-duotone',h:'Discords Regeln gelten weiter',ps:['Diese Tools sprechen über deine Webhooks mit Discord. Discords Terms, Community Guidelines und Developer Policy gelten weiter für das, was du sendest.','Wir sind nicht mit Discord verbunden. Sie können limitieren, Webhooks killen oder Accounts bannen. Das ist zwischen dir und ihnen. Wir drehen das nicht zurück.']},
+{icon:'solar:lock-keyhole-bold-duotone',h:'Privatsphäre und Daten',ps:['Builder sollen in deinem Browser laufen.','Füge keine Secrets ein, die du dir nicht leisten kannst freizulegen. Extensions und Malware können Seiteninhalte trotzdem lesen.'],ul_ok:['Webhook-URLs, Message-Inhalt und JSON bleiben auf deinem Gerät, außer du schickst sie woanders hin.','Kein Account nötig. Wir speichern deine Payloads für die Kern-Builder nicht auf einem Backend.','Die TOS-Zustimmung kann in localStorage auf deinem Gerät liegen, damit das Gate nicht bei jedem Besuch kommt.','Hosting (GitHub Pages, CDN usw.) kann trotzdem normale Web-Logs wie IP und User-Agent sehen. Das ist bei jeder Site Standard.']},
+{icon:'solar:code-bold-duotone',h:'Wie die Tools laufen',ps:['Preview ist eine Annäherung an Discord. Layouts, Limits und Component-Regeln können sich ändern. Was du hier siehst, muss nicht für immer Production matchen.','Import/Export JSON ist Komfort. Schlechtes JSON kann beim Senden scheitern. Lokale Bild-Uploads sind für Preview. Zum Senden brauchst du meist öffentliche URLs, die Discord fetchen kann.','Interaktives (Nicht-Link-Buttons, Selects usw.) braucht oft einen Bot. Webhook allein macht das nicht voll.','Embed Builder funktioniert weiter. Feature-Updates dort sind eingefroren. UI kann noch poliert werden. Neue Feature-Arbeit geht zu Components V2.']},
+{icon:'solar:forbidden-bold-duotone',h:'Keine Garantie',ps:['Site und Tools sind wie besehen und wie verfügbar. Kein Versprechen, dass sie immer laufen, online bleiben oder mit Discord kompatibel bleiben.'],ul_no:['Keine Garantie für Uptime, Genauigkeit oder Eignung für einen bestimmten Job.','Keine Garantie, dass Previews Discord für immer matchen.','Wir können Features ohne Vorankündigung ändern, kaputt machen oder entfernen.']},
+{icon:'solar:scale-bold-duotone',h:'Haftung',ps:['Du nutzt die Tools auf eigenes Risiko. Soweit gesetzlich zulässig haften Proton Services und die Leute dahinter nicht für:','Geht wegen deiner Nutzung von Webhook oder Payload etwas schief, liegt das bei dir.'],ul_no:['Messages, die du sendest, inkl. Spam, Bans oder Server-Schaden','Geleakte Webhook-URLs, Datenverlust oder Discord-Maßnahmen','Handlungen Dritter (Discord, Hosts, ISPs, andere Nutzer)','Indirekte, zufällige oder Folgeschäden']},
+{icon:'solar:copyright-bold-duotone',h:'Eigentum',ps:['Branding, Logo und Site-Design von Proton Services gehören zum Projekt. Tu nicht so, als hätte Discord Inc. diese Tools gebaut.','Was du baust, gehört dir, vorbehaltlich Discords Regeln und des Rechts.']},
+{icon:'solar:refresh-bold-duotone',h:'Änderungen',ps:['Wir können diese Bedingungen jederzeit updaten. Die Zeile „Zuletzt aktualisiert“ ändert sich dann. Site danach weiter nutzen heißt: neue Version gilt.','Wir können auch Zugang einschränken, Seiten entfernen oder Dinge abschalten, wenn nötig – inkl. bei Abuse oder aus rechtlichen Gründen.']},
+{icon:'solar:link-bold-duotone',h:'Drittanbieter',ps:['Fonts, Icons, Bilder oder Scripts können von Dritten laden. Für die gelten deren Bedingungen. Wir kontrollieren sie nicht.']},
+{icon:'solar:hamburger-menu-bold-duotone',h:'Allgemein',ps:['Ist ein Teil dieser Bedingungen ungültig, gilt der Rest weiter. Das ist die gesamte Vereinbarung für Site und Tools, es sei denn, wir veröffentlichen etwas Spezielleres für ein Feature.','Etwas einmal nicht durchzusetzen heißt nicht, dass wir das Recht später aufgeben.']},
+{icon:'solar:chat-round-bold-duotone',h:'Kontakt',ps:['Fragen zu diesen Bedingungen oder zum Projekt können über den Kontakt laufen, der auf den offiziellen Proton-Services-Seiten oder im Repo steht, von dem du die Tools hast.'],note:'Das ist keine persönliche Rechtsberatung. Brauchst du die? Red mit einem Anwalt dort, wo du lebst.'}
+]
+},
+ru:{
+title:'Условия использования',
+updated:'Обновлено: 13 сентября 2026. Пользуясь Proton Services, ты соглашаешься с этим.',
+nav_home:'Главная',nav_builder:'Открыть билдер',nav_logs:'Changelog',nav_credits:'Авторы',nav_settings:'Настройки',footer:'Бесплатные Discord-билдеры.',
+sections:[
+{icon:'solar:info-circle-bold-duotone',h:'Что это',ps:['Proton Services — бесплатный набор браузерных инструментов для сборки сообщений Discord. Components V2 и классические эмбеды. Всё в твоей вкладке. Мы не хостим твои сообщения и не храним URL вебхуков на своих серверах.','Открывая сайт, билдеры или связанные страницы, ты принимаешь эти условия. Не согласен — не пользуйся.']},
+{icon:'solar:user-check-bold-duotone',h:'Кто может пользоваться',ps:['Будь достаточно взрослым для Discord и соблюдай правила Discord там, где живёшь. Использование для сервера, бота или компании всё равно оставляет на тебе ответственность за отправленное.'],ul_ok:['Личное использование, боты, серверы, проекты — ок, если соблюдаешь эту страницу и правила Discord.','Ты отвечаешь за каждый URL вебхука, который вставляешь, и за каждый payload, который отправляешь.']},
+{icon:'solar:key-bold-duotone',h:'URL вебхуков',ps:['Билдеры сделаны так, чтобы URL оставался в браузере. Для основных tools он нам на бэкенде не нужен.'],warn:'Если утечёт — это всё равно твоя проблема. Шер экрана, скриншоты, записи, расширения, малварь, общие устройства, взломанные аккаунты, ДМ «помоги задебажить», публичные репы и плохой хостинг всё ещё могут светить URL. Если кто-то получил вебхук и злоупотребил — это не на нас. Смени вебхук в настройках сервера Discord, если что-то выглядит странно.',ul_ok:['Относись к URL вебхука как к паролю. Не пости в публичные чаты и тикеты.','У кого есть URL, тот может постить от имени вебхука, пока ты его не сбросишь.','Мы не отвечаем за утёкшие, расшаренные или украденные ссылки на вебхук.']},
+{icon:'solar:danger-bold-duotone',h:'Чего нельзя',ps:['Не используй Proton Services чтобы:'],ul_no:['Тянуть IP или трекать людей без явного законного согласия. Без IP-логгеров, скрытого трекинга и deanonymize.','Фишить, скамить или заниматься социальной инженерией. Фейк-логин, фейк-nitro, фейк-verify, кража кредов и т.п.','Распространять малварь. Стилеры, RAT, мутные «бесплатные» кряки и т.п.','Спамить или массово абузить вебхуки. Флуд, рейды, массовые пинги без спроса.','Травить, доксить или угрожать людям.','Ломать закон. Мошенничество, нелегальный контент, всё уголовное там, где ты или где работает Discord.','Намеренно обходить системы безопасности Discord или помогать другим.','Притворяться, что это официальный софт Discord или что мы хостим сообщения на сервере, когда нет.','Атаковать или перегружать Discord, наши страницы или другие сервисы через tools.'],note:'Если за это банят обычный аккаунт Discord или светит юридическая жопа — здесь тоже не делай.'},
+{icon:'solar:shield-network-bold-duotone',h:'Правила Discord всё ещё действуют',ps:['Эти tools ходят в Discord через твои вебхуки. Условия, правила сообщества и политика для разработчиков Discord всё ещё касаются того, что ты шлёшь.','Мы не аффилированы с Discord. Они могут рейтить, убивать вебхуки или банить аккаунты. Это между тобой и ними. Мы не откатываем.']},
+{icon:'solar:lock-keyhole-bold-duotone',h:'Приватность и данные',ps:['Билдеры рассчитаны на работу в браузере.','Не вставляй секреты, которые нельзя светить. Расширения и малварь всё ещё могут читать страницу.'],ul_ok:['URL вебхуков, текст и JSON остаются на устройстве, пока ты сам куда-то их не отправишь.','Аккаунт не нужен. Мы не кладём твои payload на бэкенд для основных билдеров.','Согласие с условиями может лежать в localStorage на устройстве, чтобы гейт не вылезал каждый раз.','Хостинг (GitHub Pages, CDN и т.д.) всё равно может видеть обычные веб-логи вроде IP и user agent. Так у любого сайта.']},
+{icon:'solar:code-bold-duotone',h:'Как работают tools',ps:['Превью — приближение Discord. Вёрстка, лимиты и правила компонентов могут меняться. То, что здесь, не обязан совпадать с продом навсегда.','Импорт/экспорт JSON — для удобства. Плохой JSON может не уйти. Локальные картинки — для превью. Для отправки обычно нужны публичные URL, которые Discord может скачать.','Интерактив (не-link кнопки, селекты и т.п.) часто требует бота. Одного вебхука мало.','Embed builder ещё работает. Фичи там заморожены. UI всё ещё можно полировать. Новая функциональность идёт в Components V2.']},
+{icon:'solar:forbidden-bold-duotone',h:'Без гарантий',ps:['Сайт и tools — as is и as available. Нет обещания, что всегда работает, онлайн и совместимо с Discord.'],ul_no:['Нет гарантии аптайма, точности или пригодности под конкретную задачу.','Нет гарантии, что превью навсегда совпадает с Discord.','Мы можем менять, ломать или убирать фичи без предупреждения.']},
+{icon:'solar:scale-bold-duotone',h:'Ответственность',ps:['Пользуешься tools на свой риск. В максимальной мере, допускаемой законом, Proton Services и люди за проектом не отвечают за:','Если что-то пошло не так из‑за того, как ты использовал вебхук или payload — это на тебе.'],ul_no:['Сообщения, которые ты шлёшь, включая спам, баны или вред серверу','Утёкшие URL вебхуков, потерю данных или действия Discord','Действия третьих сторон (Discord, хосты, ISP, другие пользователи)','Косвенный, случайный или последующий ущерб']},
+{icon:'solar:copyright-bold-duotone',h:'Права',ps:['Бренд, логотип и дизайн сайта Proton Services принадлежат проекту. Не делай вид, будто это сделала Discord Inc.','Контент, который ты собираешь — твой, с учётом правил Discord и закона.']},
+{icon:'solar:refresh-bold-duotone',h:'Изменения',ps:['Мы можем обновлять эти условия в любой момент. Строка «Обновлено» меняется тогда. Продолжая пользоваться сайтом после изменения, ты на новой версии.','Мы также можем ограничить доступ, убрать страницы или выключить что-то при необходимости, в том числе из‑за абуза или по закону.']},
+{icon:'solar:link-bold-duotone',h:'Стороннее',ps:['Шрифты, иконки, картинки или скрипты могут грузиться со сторонних сервисов. На них действуют их условия. Мы их не контролируем.']},
+{icon:'solar:hamburger-menu-bold-duotone',h:'Общее',ps:['Если часть условий недействительна, остальное всё равно действует. Это полное соглашение по сайту и tools, если мы не опубликуем что-то более конкретное для фичи.','Один раз не принудить к соблюдению не значит отказаться от права позже.']},
+{icon:'solar:chat-round-bold-duotone',h:'Контакт',ps:['Вопросы по условиям или проекту — через контакт на официальных страницах Proton Services или в репозитории, откуда ты взял tools.'],note:'Это не персональная юридическая консультация. Нужна такая? Поговори с юристом там, где живёшь.'}
+]
+}
+};
+function getLang(){try{const l=localStorage.getItem('proton_lang');if(l&&I18N[l])return l}catch(e){}return'en'}
+function getQuality(){try{const q=localStorage.getItem('proton_quality');if(q==='stable'||q==='good')return q}catch(e){}return'good'}
+function applyQuality(){document.body.classList.toggle('quality-stable',getQuality()==='stable')}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function render(){
+const lang=getLang();
+const pack=I18N[lang]||I18N.en;
+document.documentElement.lang=lang==='pt'?'pt-BR':lang==='es'?'es-ES':lang;
+document.title=pack.title+' | Proton Services';
+document.querySelectorAll('[data-i18n]').forEach(el=>{
+const k=el.getAttribute('data-i18n');
+if(pack[k])el.textContent=pack[k];
+});
+const headH=document.querySelector('.page-head h1');
+const headP=document.querySelector('.page-head p');
+if(headH)headH.textContent=pack.title;
+if(headP)headP.textContent=pack.updated;
+const stack=document.getElementById('tosStack');
+stack.innerHTML=pack.sections.map(s=>{
+let html=`<article class="card"><h2><iconify-icon icon="${s.icon}"></iconify-icon> ${esc(s.h)}</h2>`;
+(s.ps||[]).forEach(p=>{html+=`<p>${esc(p)}</p>`});
+if(s.warn)html+=`<p class="warn">${esc(s.warn)}</p>`;
+if(s.ul_ok&&s.ul_ok.length){
+html+='<ul>';
+s.ul_ok.forEach(li=>{html+=`<li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon><span>${esc(li)}</span></li>`});
+html+='</ul>';
+}
+if(s.ul_no&&s.ul_no.length){
+html+='<ul>';
+s.ul_no.forEach(li=>{html+=`<li><iconify-icon icon="solar:close-circle-bold-duotone"></iconify-icon><span>${esc(li)}</span></li>`});
+html+='</ul>';
+}
+if(s.note)html+=`<p class="note">${esc(s.note)}</p>`;
+html+='</article>';
+return html;
+}).join('');
+}
+applyQuality();
+render();
+</script>
+</body>
+</html>
